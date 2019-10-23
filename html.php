@@ -78,7 +78,5 @@ APPENDOC;
 /*** initiliaze HTML meta vireport, css  **/
 appendViewPort();
 loadCss();
-
-
 appendInlineStyle("body", "{padding: '2rem'}" );
 /*********************************/
