@@ -6,7 +6,7 @@ Vital functions for PHP7 development
 - Read and follow instructions in that file.
 
 # Who this is for
-I write this functions for my personal use. However, I think that php resources on the web that hits by searching is mostly very old or mostly procedural style. I supposed this is mostly PHP5's feature or earlyer bersion.  This is useful for deep understanding, but for norvice, very boring stuff and complicated. 
+I write this functions for my personal use. However, I think that PHP resources on the web that hits by searching is mostly very old or mostly procedural style. I supposed this is mostly PHP5's feature or earlyer version.  This is useful for deep understanding for intermediate or professional, but for norvice, very boring stuff and complicated.
 
 I'm provably intermediate level.
 
