@@ -7,7 +7,7 @@ require_once dirname(__FILE__, 2)  ."/__init__.php";
 
 
 #  (2) How to use?
-// Autil files(modules) is namspaced as 'V'. So, when you use function after you include(require) files, you must follow two of which ways to use imported function.
+// Autil files(modules) is namespaced as 'V'. So, when you use function after you include(require) files, you must follow two of which ways to use imported function.
 
 
 /******[  add '/' to below '*****...' line end for Demo  ]******
