@@ -6,5 +6,9 @@ Vital functions for PHP7 development
 - Read and follow instructions in that file.
 
 # Who this is for
-I write this functions for my php development. I'm proverbly intermediate level.
-I write short tutorial in '@test/autil.test.php' mainly for novice programmers of PHP in consideration.
+I write this functions for my personal use. However, I think that php resources on the web that hits by searching is mostly very old or mostly procedural style. I supposed this is mostly PHP5's feature or earlyer bersion.  This is useful for deep understanding, but for norvice, very boring stuff and complicated. 
+
+I'm provably intermediate level.
+
+I write short tutorial in '@Test/autil.test.php' mainly for novice programmers of PHP in consideration.
+This functions library bind many duplicated, verbose functions up to relatively simple function for daily use.
