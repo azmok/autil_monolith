@@ -7,7 +7,7 @@ namespace V;
 
 
 
-/****************  cas, js initializs, helper  *******/
+/****************  cas, js initializes, helper  *******/
 define('PATH_CSS_BOOTSTR', "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
 
 
@@ -82,22 +82,3 @@ loadCss();
 
 appendInlineStyle("body", "{padding: '2rem'}" );
 /*********************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
