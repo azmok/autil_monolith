@@ -139,22 +139,3 @@ class RegExpO{
       return $this->value();
    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

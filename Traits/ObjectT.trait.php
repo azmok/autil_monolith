@@ -69,22 +69,3 @@ trait ObjectT{
       return object2String($this);
    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
