@@ -5,23 +5,36 @@ namespace V;
 
 
 #---------------------------------------------------------#
-#------------------   self-independent   -----------------#
+#--------------------   independent   --------------------#
 #---------------------------------------------------------#
+/**
+ *
+ */
 function toArray($str){
    return str_split($str);
 }
 
+/**
+ *
+ */
 function br($num=2){
    for($i = 0; $i < $num; $i++){
       echo "<br>";
    }
 }
+
+/**
+ *
+ */
 function append($val, &$arr){
    $arr[] = $val;
    
    return $arr;
 }
 
+/**
+ *
+ */
 function prepend($val, &$arr){
    $newArr = [];
    for($i=0; $i < count($arr)+1; $i++){
@@ -35,12 +48,18 @@ function prepend($val, &$arr){
    return $newArr;
 }
 
+/**
+ *
+ */
 function indexOf($val, $arr){
    $res = array_search($val, $arr);
    
    return $res;
 }
 
+/**
+ *
+ */
 function includes($searchVal, $str){
    $regex = "/".  $searchVal   ."/";
    $res = preg_match($regex, $str);
@@ -48,14 +67,23 @@ function includes($searchVal, $str){
    return $res ? true : false;
 }
 
+/**
+ *
+ */
 function exho($val){
    echo "$val<br/>";
 }
 
+/**
+ *
+ */
 function head($arr){
    return $arr[0];
 }
 
+/**
+ *
+ */
 function isAssoc($val){
    if( gettype($val) === "array" ){
       $keys = array_keys($val);
@@ -68,7 +96,9 @@ function isAssoc($val){
    }
 }
 
-
+/**
+ *
+ */
 function split($separator="", $str){
 
    if( $separator === ""){
@@ -78,6 +108,9 @@ function split($separator="", $str){
    }
 }
 
+/**
+ *
+ */
 function isNill($v){
    if( $v === null ||
        $v === "" ||
@@ -89,6 +122,9 @@ function isNill($v){
    }
 }
 
+/**
+ *
+ */
 function prependTab($str, $count=1, $tabChar="&emsp;"){
    $tab = "";
    
@@ -100,6 +136,9 @@ function prependTab($str, $count=1, $tabChar="&emsp;"){
    return $tabbed;
 }
 
+/**
+ *
+ */
 function appendTab($str, $count=1, $tabChar="&emsp;"){
    $tab = "";
    
@@ -111,7 +150,9 @@ function appendTab($str, $count=1, $tabChar="&emsp;"){
    return $tabbed;
 }
 
-##### right alignment #####
+/** Right Alignment
+ *
+ */
 function formatR($val, $tabNum=15){
    # "r"(right): $alignType
    $str = "$val";
@@ -124,14 +165,23 @@ function formatR($val, $tabNum=15){
    return $formatted;
 }
 
+/**
+ *
+ */
 function toUpperCase($str){
    return strtoupper($str);
 }
 
+/**
+ *
+ */
 function toLowerCase($str){
    return strtolower($str);
 }
 
+/**
+ *
+ */
 function trim($str){
    $regex = '/^([\s\t　])*([\w\W]+?)[\s\t　]*$/';
    $replacer = function($matches){
@@ -155,8 +205,11 @@ function trim($str){
 
 
 #-------------------------------------------------------#
-#------------------   self dependant   -----------------#
+#--------------------   dependant  ---------------------#
 #-------------------------------------------------------#
+/**
+ *
+ */
 function isArray($val) {
    return (
       gettype($val) === "array"  &&
@@ -164,6 +217,9 @@ function isArray($val) {
    );
 }
 
+/**
+ *
+ */
 function type($val){
    if ( is_callable($val) ){
       return "[Function]";
@@ -188,6 +244,9 @@ function type($val){
    }
 }
 
+/**
+ *
+ */
 function isType($target, $type){
    if( type($target) === $type ){
       return true;
@@ -196,6 +255,9 @@ function isType($target, $type){
    }
 }
 
+/**
+ *
+ */
 function length($arg){
    
    ##  $arg :: [Function]
@@ -224,6 +286,9 @@ function length($arg){
    }
 }
 
+/**
+ *
+ */
 function _forEach($fn, $arr, $argType=3){
    ## assocArr
    if( isAssoc($arr)  ||  $argType === 4 ){
@@ -242,7 +307,9 @@ function _forEach($fn, $arr, $argType=3){
    }
 }
 
-
+/**
+ *
+ */
 function toTypeFriend($v){
    if( isType($v, "[String]") ){
       if( empty($v)  ){
@@ -255,7 +322,9 @@ function toTypeFriend($v){
    }
 }
 
-
+/**
+ *
+ */
 function object2String($obj, $depth=1){
    if( $obj === NULL ){
       $obj = $this;
@@ -288,6 +357,9 @@ function object2String($obj, $depth=1){
    return $str;
 }
 
+/**
+ *
+ */
 function toString($arg){
 
    ## String
@@ -328,7 +400,9 @@ function toString($arg){
    }
 }
 
-
+/**
+ *
+ */
 function prettify($arr, $format_assoc=false, $depth=0, $prevVal=""){
 
    ## AssocArr, $format_assoc: *
@@ -434,6 +508,9 @@ function prettify($arr, $format_assoc=false, $depth=0, $prevVal=""){
    }
 }
 
+/**
+ *
+ */
 function toAttr($assocArr){
    if( isAssoc($assocArr) ){
       $str = "";
@@ -459,26 +536,10 @@ function toAttr($assocArr){
       
    }
 }
-/*
-$attrAssoc = [
-   "class" => "abc foo",
-   "style" => [
-      "color" => "white",
-      "backg" => "blue",
-   ],
-];
-toAttr( $attrAssoc );/**/
 
-
-
-
-
-
-
-
-
-
-
+/**
+ *
+ */
 function inject($val, $tagName="h1", $assocArr=[]){
    if( $tagName === "h1" ){
       if( empty($assocArr) ){
@@ -495,6 +556,9 @@ function inject($val, $tagName="h1", $assocArr=[]){
    echo "<{$tagName} {$str}>$val</{$tagName}>";
 }
 
+/**
+ *
+ */
 function create($txt, $tagName="div", $assocArr=[]){
    if( empty($assocArr) ){
       $assocArr = [
@@ -509,8 +573,9 @@ function create($txt, $tagName="div", $assocArr=[]){
    return "<{$tagName} {$attr}>$txt</{$tagName}>";
 }
 
-#### _ :: (* -> * -> ...) -> null
-      //echo for debugging
+ /** echo for debugging
+  *
+  */
 function _ (...$args){
    #### args.length <= 1
    if( count($args) <= 1 ){
@@ -530,11 +595,16 @@ function _ (...$args){
    exho("");
 }
 
+/**
+ *
+ */
 function pretty($arr, $format_assoc=true){   
    _( prettify($arr, $format_assoc) );
 }
 
-
+/**
+ *
+ */
 function find($item, $arr){
    $flag = false;
    
@@ -557,10 +627,16 @@ function find($item, $arr){
    return $flag;
 }
 
+/**
+ *
+ */
 function last($arr){
    return $arr[ length($arr) -1 ];
 }
 
+/**
+ *
+ */
 function some($fn, $arr){
    $flag = false;
    
@@ -605,12 +681,16 @@ function every($fn, $arr){
    return $flag;
 }
 
-
+/**
+ *
+ */
 function isInRange($num, $ranges){
    return find($num, $ranges);
 }
 
-
+/**
+ *
+ */
 function takeAt($startIndex, $num, $arr){
    $endIndex = $startIndex + $num - 1;
       
@@ -619,6 +699,9 @@ function takeAt($startIndex, $num, $arr){
    }, $arr);
 }
 
+/**
+ *
+ */
 function joinWith($jointer, ...$rest){
    ### jointer :: [String]
    if( isType($jointer, "[String]") ){
@@ -731,10 +814,9 @@ function joinWith($jointer, ...$rest){
    }
 }
 
-
-
-
-
+/**
+ *
+ */
 function map($fn, $arr){
    $newArr = [];
    
@@ -754,6 +836,9 @@ function map($fn, $arr){
    return $newArr;
 }
 
+/**
+ *
+ */
 function toCamelCase($str){
    $str = strtolower($str);
    ## detect 'snake_case', 'space'
@@ -775,10 +860,16 @@ function toCamelCase($str){
    return $replaced;
 }
 
+/**
+ *
+ */
 function toSnakeCase($str){
    return "snaked!";
 }
 
+/**
+ *
+ */
 function filter($fn, $arr){
    $newArr = [];
    
@@ -798,7 +889,9 @@ function filter($fn, $arr){
    return $newArr;
 };
 
-
+/**
+ *
+ */
 function rest($arr){
    $filterFn = function($val, $indx){
       return $indx !== 0;
@@ -808,12 +901,18 @@ function rest($arr){
    return $newArr;
 }
 
+/**
+ *
+ */
 function take($num, $arr){
    return filter(function($curr, $indx) use($num){
       return $indx < $num;
    }, $arr);
 }
 
+/**
+ *
+ */
 function concat(...$args){
    $length = length($args);
    
@@ -859,6 +958,9 @@ function concat(...$args){
    }
 }
 
+/**
+ *
+ */
 function reduce($fn, $initVal, $arr){
    $acc = $initVal;
    
@@ -878,6 +980,9 @@ function reduce($fn, $initVal, $arr){
    return $acc;
 };
 
+/**
+ *
+ */
 function flatten($arr, $recursive=false, $depth=0){
    ### Array
    if( isArray($arr) ){
@@ -911,6 +1016,9 @@ function flatten($arr, $recursive=false, $depth=0){
    }
 }
 
+/**
+ *
+ */
 function flattenDeep($arr, $depth=0){
    ### Array
    if( isArray($arr) ){
@@ -943,7 +1051,9 @@ function flattenDeep($arr, $depth=0){
    }
 }
 
-
+/**
+ *
+ */
 function filterFlags($regexStr, $flag){
    $regObj = new \OOPe\RegExpO( $regexStr );
    $newRegObj = $regObj->filterFlags($flag);
@@ -951,6 +1061,9 @@ function filterFlags($regexStr, $flag){
    return $newRegObj->value();
 }
 
+/**
+ *
+ */
 function pushTo($val, $index, $arr){
    $lastIndex = length($arr) - 1;
    $before = take($index, $arr);
@@ -962,7 +1075,9 @@ function pushTo($val, $index, $arr){
    return $newArr;
 }
 
-
+/**
+ *
+ */
 function match($regexStr, $str, $offset=false){
    
    ## $searchPat :: [Regex]
@@ -1009,6 +1124,9 @@ function match($regexStr, $str, $offset=false){
    }
 }
 
+/**
+ *
+ */
 function replace($searchPattern, $replacePattern, $str){
    ## $searchPattern === [Regex]
    
@@ -1038,7 +1156,9 @@ function replace($searchPattern, $replacePattern, $str){
    }
 }
 
-
+/**
+ *
+ */
 function curry($fn){
    $inner = function($arguments) use ($fn, &$inner){
    
@@ -1061,7 +1181,9 @@ function curry($fn){
    return $inner( [] );
 }
 
-
+/**
+ *
+ */
 function toClosure($fn){
    $refFn = new \ReflectionFunction($fn);
    
@@ -1077,7 +1199,9 @@ function toClosure($fn){
    return $closure;
 }
 
-
+/**
+ *
+ */
 function apply($fn, $obj, $arrArgs=[]){
    $closure = toClosure($fn);
    
@@ -1089,7 +1213,9 @@ function apply($fn, $obj, $arrArgs=[]){
    }
 }
 
-
+/**
+ *
+ */
 function call($fn, $obj, ...$args){
    $closure = toClosure($fn);
    
@@ -1101,7 +1227,9 @@ function call($fn, $obj, ...$args){
    }
 }
 
-
+/**
+ *
+ */
 function bind($fn, $obj, ...$bArgs){
    $refFn = new \ReflectionFunction($fn);
    
@@ -1126,10 +1254,11 @@ function bind($fn, $obj, ...$bArgs){
       }
    };
 }
-/***Ex***
- 
-/**/
 
+
+/**
+ *
+ */
 function initial($arr){
    $lastIndex = count($arr) - 1;
    $newArr = [];
@@ -1175,8 +1304,9 @@ function merge($arr1, $arr2, $depth=0){
    return $arr1;
 }
 
-
-
+/**
+ *
+ */
 function repeat($v, $num, ...$args){
    # Function
    if( is_callable($v) ){
@@ -1198,27 +1328,3 @@ function repeat($v, $num, ...$args){
       return $str;
    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
