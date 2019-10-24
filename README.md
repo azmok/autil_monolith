@@ -182,29 +182,14 @@ Below table summarize gettype(), type()
 
 <h2 id="predicate">Predicate</h2>
 
-#### `isType( `*`any`*`, `*`typeStr`*` )`
-`isType :: * -> Str -> Bool`
-- Return true if first argument type match specified type by typeStr
+#### `isType( `*`typeStr`*`, `*`any`*` )`
+`isType :: typeStr -> * -> Bool`
+- Return true if `*`typeStr`*` match `*`any`*`'s data type
 
 ```php
-isType( "a", "[String]" ); // true
-isType( 1, "[Number]" ); // ture
+isType("[String]", "a" ); // true
+isType("[Number]", 3 ); // ture
 ```
-
-
-
-#### `isTypeLiteral( `*`str`*` )`
-`isTypeLiteral :: Str -> Str`
-- Return true if input string is "[Number]" \| "[String]" \| "[Boolean]" \|...
-
-```php
-isTypeLiteral("a"); // false
-isTypeLiteral("[Function]" ); // true
-isTypeLiteral("[function]" ) ; // false
-```
-
-
-
 
 
 
