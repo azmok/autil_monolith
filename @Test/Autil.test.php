@@ -2,25 +2,85 @@
 
 
 
-#  (1) Importing all Autil Files
-require_once dirname(__FILE__, 2)  ."/__init__.php";
+
+
+require_once dirname(__FILE__, 2)  ."/__init__.php"
+#  (1) as importing __init__.php file, all Autil Files imported to current file(this file). So, If you want to use Autil library in Different directory's file, all you nedd to do is to import Autil '__init__.php' file.
+/***
+
+   For example, suppose your Document Root is 'htdocs' and Autil Folder is beside your Project Directory.
+
+
+
+htdocs/
+  |
+  |- youProjectDir/
+  |      |
+  |      |- yourFile.php
+  |
+  |
+  |- Autil/
+       |
+       |- __init__.php
+       |
+       |-...
+       |
+       
+       
+
+
+--- 'yourfile.php' ----
+> <?php
+>
+>    require_once $_SERVER['DOCUMENT_ROOT']  . "/Autil/__init__.php";
+>    
+>    use function V\_, V\type, ...
+>
+>
+>
+>
+>    ...your php script...
+>
+-----------------------*/
+
+
+
+
+
+
+
 
 
 #  (2) How to use?
-// Autil files(modules) is namespaced as 'V'. So, when you use function after you include(require) files, you must follow two of which ways to use imported function.
+// Autil files(modules) is namespaced as 'V'. So, when you use function after you include(require) files, you must follow two of which ways to use imported functions.
 
 
-/******[  add '/' to below '*****...' line end for Demo  ]******
- ***************************************************************
-##  (2-1) using 'fully qualified name' to use function.
-## ex ##
+
+
+/***********************************************************************
+ *     add '/' to below '....*****' line end to start below demos    ↘︎
+ **********************************************************************
+
+#-------------------------
+#  (2-1) using 'fully qualified name' to use function.
+#------------------------
+#  ex  )
+#
+
 // {namespace}\{FnName}();
 V\_(1); // 1
 
 
 
-##  (recommend: 2-2) using 'use function {namespace}\{FnName}' clause to use imported function
-## ex ##
+
+
+#-------------------------
+#   + recommended +
+#  (2-2 ) using 'use function {namespace}\{FnName}' clause to use imported function
+#-------------------------
+#  ex  )
+#
+
 use function V\_, V\type;
 
 
@@ -28,14 +88,23 @@ _(1); // 1
 echo type(1); // "[Number]"
 
 
-/*******[ To continue for Demo, ... ]*****************
 
-- Remove '/' from the line previously you've added
-- Add '/' to below '******...' line end
 
-  to comment out above how-to's😎🌟 Let's try more Demos!!😙😋
 
-*****************************************************
+
+
+
+
+
+
+/**********************************************************
+ *  To continue for demo,
+ *
+ *   - Add '/' to below '....******' line end 
+ *                                             \        
+ *       Let's try more Demos!!😙😋           |         
+ *                                             ↓  
+***********************************************
 
 
 

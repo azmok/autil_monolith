@@ -225,26 +225,20 @@ length( "abcd" ); // 4
 
 
 #### `prepend( `*`str`*` )`
-`prepend :: Str -> Num`
-- Return 
+`concat :: Str -> ...Str`
+- concatenate Strs and return concatnated string
 
 ```php
+$str = "This is demo";
 
-```
-
-
-#### `appned( `*`str`*` )`
-`appned :: Str -> Num`
-- Return 
-
-```php
-
+echo concat($str, " sentence."); // This is demo sentence.
+echo concat($str, " Apple", " and Banana."); // This is Apple and Banana.
 ```
 
 
 #### `split( `*`separator`*`, `*`str`*` )`
 `split :: Str -> []`
-- Return the array that element is divided string accoding to separator. This function can acccept `""`(empty string) as *`separator`*.
+- split string by separator and store each string to array, and return the array. This function can acccept `""`(empty string) as *`separator`*.
 
 ```php
 $str = "this is demo";
@@ -434,19 +428,12 @@ takeAt(1, 3, $arr); // (2, 3, 4)
 
 
 
-#### `concat( `*`val1`*`, val2 )`
-`concat :: (...*) -> []`
+#### `concat( `*`arr1`*`, `*`arr2`*` )`
+`concat :: ( [] -> [] ) -> []`
 - If all arguments are string, return concatenated string.
 - If all arguments are **not** string, return concatenated array.
 
 ```php
-concat("abc", "foo"); // "abcfoo"
-concat("abc", "foo", "Hey"); // "abcfooHey"
-
-
-concat(1, 2); // (1, 2)
-concat(1, 2, 3); // (1, 2, 3)
-
 
 concat([1], [2]); // (1, 2)
 concat([3], ["a", "b"]); // (3, "a", "b")
@@ -473,79 +460,102 @@ indexOf("name", $AssocArr); // 1
 ```
 
 
-##### `joinWith( `*`jointer`*`, `*`...strs`*` )`
-`joinWith :: (String -> ...String) -> String`
-- join list of string arguments with `jointer`
+##### `joinWith( `*`jointer`*`, `*`arr`*` )`
+
 
 ```php
-joinWith("=", "a", "b" ); // a=b
-joinWith("", "a", "b"); // ab
-joinWith("=", "a", "b", "c" ); // a=b=c
-joinWith("", "a", "b", "c"); // abc
+
 ```
 
 
 
 #### `_forEach( `*`fn`*`, `*`arr`*` )`
 `_forEach :: (fn -> []) -> null`
-- applying function `fn` to each element in array `arr`. no return value.
+- Iterate over the array arr with callback function `fn`. Callback function fn is applied to each element of the array. no return value.
 
-parameter
-   arr:
-      normal(flat) array or associative array
-   
-   callback( $key, $val, $index, $arr):
-      function that is invoked on each item.
-   
-      callback function on each item in array.
-      (1) when passed array is normal arr
-         $key: null
-         $val: current iteration value in array
-         $index: current iteration index
-         $arr: target array
-         
-      (2) when passed array is assoc arr
-         $key: current iteration key in ssocArray
-         $val: current iteration value in ssocArray
-         $index:current iteration index in ssocArray
-         $arr: target array
-   
+parameter  
+   callback($val, $index, $arr):  
+      $val: current element value of array on iteration.  
+      $index: current element index number in array.  
+      $arr: the array iterated over.  
+      
+   arr:  
+      array  
+      
 ```php
-#####  flatArr  #####
-$flatArr = ["a", "b", "c"];
+$arr = [1,2];
 
-_forEach( function($key, $val, $indx, $arr){
-   _( "key: {$key}, val: {$val}, index: {$indx}" );
-}, $flatArr );
+_forEach( function($val, $indx, $arr){
+   _( "val: ", $val );
+   _( "indx: ", $indx );
+   _( "arr: ",  $arr );
+   _("");
+}, $arr );
 
-//----- output -------------
-// key: , val: a, index: 0
-// key: , val: b, index: 1
-// key: , val: c, index: 2
 
-/*--- function can be passed by variable name --------
-$injectKeyVals = function($key, $val, $indx, $arr){
-   _( "key: {$key}, val: {$val}, index: {$indx}" );
+/***  output  ***
+val: 1 
+indx: 0 
+arr: 
+(1 , 2)
+
+val: 2 
+indx: 1 
+arr: 
+(1 , 2)
+/*****************/
+
+
+
+/*--- callback function can be passed by variable name --------*/
+$logArrElms = function($val, $indx, $arr){
+   _( "val: {$val}" );
+   _( "index: {$indx}" );
+   _( "arr: {$arr}" );
 };
-_forEach( $injectKeyVals, $flatArr );
+_forEach( $logArrElms, $flatArr ); // same output
 /*--------------------------------------------------*/
 
 
 
-#####  assocArr  #####
-$assocArr = [
-   "id" => "001",
-   "name" => "bejita",
-];
 
-_forEach( function($key, $val, $indx, $arr){
-   _( "key: {$key}, val: {$val}, index: {$indx}" );
-}, $assocArr );
 
-//----- output -------------------
-// key: id, val: 001, index: 0
-// key: name, val: bejita, index: 1
-/*------------------------------*/
+/* If you want to use nearest outer scope variable, must use 'use' keyword in callback function definition.
+
+
+function LogArrElms($arr){
+   $local = "local Var!";
+   $callback = function($curr, $indx) use($local){
+      _( $local );
+      _( $indx );
+   };
+   _forEach($callback, $arr);
+}
+LogArrElms( [1,2] );
+/***  output  ***
+local Var!
+0
+local Var!
+1
+/****************/
+
+If 'use' keyword is absent...
+
+function LogArrElms($arr){
+   $local = "local Var!";
+   $callback = function($curr, $indx){
+      _( $local );
+      _( $indx );
+   };
+   _forEach($callback, $arr);
+}
+LogArrElms( [1,2] );
+/***  output  ***
+[Null]
+0
+[Null]
+1
+/****************/
 ```
 
 
@@ -671,40 +681,6 @@ every($lessThanEq2, $arr); // false
 
 
 
-#### `prettify( `*`arr`*` )`
-`prettify :: [] -> Str`
-- Return string that is more human-readable format than built-in `print_r()`/`var_dump()`.
-
-```php
-$flatArr = [1, 2, 3];
-exho( prettify($flatArr) ); // (1, 2, 3)
-
-
-
-$assocArr = [
-   "name" => "goku",
-];
-exho( prettify($assocArr) );
-// [name]: goku
-
-
-
-
-$assocArr2d = [
-   "name" => "goku",
-   "mode" => [
-      "kaiouken" => "speedx50",
-      "superSiya" => "MUTEKI!",
-   ],
-];
-exho( prettify($assocArr2d) );
-// [name]: goku
-// [mode]:
-//   [kaiouken]: speedx50
-//   [superSiya]: MUTEKI!
-```
-
-
 
 
 
@@ -781,10 +757,12 @@ inject( "hey!", "h2" );
 
 $attrArray = [
    "class" => "item",
-   "style" => "color: red;",
+   "style" => [
+      "color" => "red",
+   ],
 ];
-inject( "hoi.", "h3", $attrArray );
-// <h3 class="item" style="color: red;">hoi.</h3>
+inject( "meow!", "h3", $attrArray );
+// <h3 class="item" style="color: red;">meow!</h3>
 
 ```
 
