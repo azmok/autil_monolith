@@ -4,7 +4,7 @@
 
 
 
-require_once dirname(__FILE__, 2)  ."/__init__.php"
+require_once dirname(__FILE__, 2)  ."/__init__.php";
 #  (1) By importing __init__.php file, all functions in Autil is imported to current file(this file).
 # 
 #     If you want to use Autil library in different file in different directory,
