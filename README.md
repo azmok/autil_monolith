@@ -162,6 +162,7 @@ type( new MyClass() ); // "[Object]"
 
 
 Below table summarize gettype(), type()
+
 |      value     |   type    |  gettype()   |  type()     |
 | -------------- | --------- | ------------ | ----------  |
 |   `true`, `false`   |  boolean  |  "boolean"   | "[Boolean]" |
