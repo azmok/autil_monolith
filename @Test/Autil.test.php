@@ -8,10 +8,10 @@ require_once dirname(__FILE__, 2)  ."/__init__.php"
 #  (1) By importing __init__.php file, all functions in Autil is imported to current file(this file).
 # 
 #     If you want to use Autil library in different file in different directory,
-#     all you need to do is to import '__init__.php' file in Autil.
+#     all you need to do is to import '__init__.php' file of Autil.
 /***
 
-   For example, suppose your Document Root is 'htdocs' and Autil Folder is beside your Project Directory.
+   For example, suppose your Document Root is 'htdocs' and Autil folder is beside your project directory.
 
 
 
