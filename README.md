@@ -184,7 +184,7 @@ Below table summarize gettype(), type()
 
 #### `isType( `*`typeStr`*`, `*`any`*` )`
 `isType :: typeStr -> * -> Bool`
-- Return true if `*`typeStr`*` match `*`any`*`'s data type
+- Return true if *`typeStr`* match *`any`*'s data type
 
 ```php
 isType("[String]", "a" ); // true
