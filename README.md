@@ -380,9 +380,9 @@ _( $arr ); // (1, 2, 3)
 ```
 
 
-# pop
-# shit 
-# unshift
+#### pop
+#### shit 
+#### unshift
 
 
 
