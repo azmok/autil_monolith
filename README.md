@@ -132,16 +132,16 @@ Below table summarize gettype(), type()
 
 |      value     |   data types in PHP  |  `gettype()` (built-in)  |  `type()`     |
 | -------------- | --------- | ------------ | ----------  |
-|   `true`, `false`   |  boolean  |  "boolean"   | "[Boolean]" |
-|   `null`         |  null     |  "NULL"      | "[Null]"    |
-|   `1`, `300`       |  integer  |  "interger"  | "[Number]"  |
-|   `2.3`         |  double   |  "double"    |     〃      |
-|   `NAN`          |  NAN      |  "double"    |     〃      |
-|   `"hi"`        |  string   |  "string"    | "[String]"   |
-|   `[1,2]`        |  array    |  "array"     | "[Array]"    |
-|   `["name" => "goku"]` | array | "array" | "[AssocArray]" |
-|   `new Person()`   |  object   |  "object"    | "[Object"]   |     
-|   `function(){}` |  object   |  "object"    | "[Function]" | 
+|   `true`, `false`   |  boolean  |  `"boolean"`   | `"[Boolean]"` |
+|   `null`         |  null     |  `"NULL"`      | `"[Null]"`    |
+|   `1`, `300`       |  integer  |  `"interger"`  | `"[Number]"`  |
+|   `2.3`         |  double   |  `"double"`    | `"[Number]"`  |
+|   `NAN`          |  NAN      |  `"double"`    | `"[Number]"`  |
+|   `"hi"`        |  string   |  `"string"`    | `"[String]"`   |
+|   `[1,2]`        |  array    |  `"array"`     | `"[Array]"`    |
+|   `["name" => "goku"]` | array | `"array"` | `"[AssocArray]"` |
+|   `new Person()`   |  object   |  `"object"`    | `"[Object]"`   |     
+|   `function(){}` |  object   |  `"object"`    | `"[Function]"` | 
 
 
 
