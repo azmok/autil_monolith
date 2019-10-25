@@ -77,40 +77,6 @@ _( new Foo() );
 $assoc1 = ["name"=> "joe"];
 _( $assoc1 );
 // [name]: joe
-
-
-
-$assoc2 = [
-   "type"=> "monk",
-   "HP" => "20000",
-];
-_( $assoc2 );
-// [type]: monk
-// [HP]: 20000
-
-
-
-$assoc3 = [
-   "type"=> "monk",
-   "HP" => "20000",
-   "3" => [
-      "2nd" => "hu",
-   ],
-];
-_( $assoc3 );
-// [type]: monk
-// [HP]: 20000
-// [3]:
-//   [2nd]: hu
-
-
-
-_( "hi", "this", $assoc3 );
-// hi this
-// [type]: monk
-// [HP]: 20000
-// [3]:
-//   [2nd]: hu
 ```
 
 
