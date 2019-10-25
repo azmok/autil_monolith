@@ -4,10 +4,6 @@ namespace OOPe;
 
 
 
-
-
-
-
 /** Initilizing HTML for PHP Dev 
  *
  */
@@ -171,22 +167,3 @@ DOC;
       $this->renderJs($js);
    }
 }
-
-
-   
-
-   
-
-   
-
-   
-
-   
-
-   
-
-   
-
-   
-
-   
