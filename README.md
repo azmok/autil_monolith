@@ -504,7 +504,7 @@ LogArrElms( [1,2] );
 
 #### `map( `*`mappingFn`*`, `*`arr`*` )`
 `map :: ( (* -> *) -> [] ) -> []`
-- Applying callback function `mappingFn` to each element of array `arr` and return new mapped array.
+- Applying callback function `mappingFn` to each element of `arr` and return new mapped array.
 
 ```php
 $arr = [1,2,3];
@@ -544,7 +544,7 @@ _( filter($isEven, $arr) ); // [2, 4]
 
 #### `some( `*`predicateFn`*`, `*`arr`*` )`
 `some :: ( (* -> bool) -> [] ) -> bool`
-- Return true if callback funcition `predicateFn` return true in ,at least, one element
+- Return true if callback funcition `predicateFn` return true on one element at least
 
 ```php
 $arr = [1,2,3];
@@ -575,7 +575,7 @@ some( $lessThan2, $arr) ); // true
 
 #### `every( `*`predicateFn`*`, `*`arr`*` )`
 `every :: ( (* -> bool) -> [] ) -> bool`
-- Return true if callback funcition `predicateFn` return true in all elements
+- Return true if callback funcition `predicateFn` return true on all elements
 
 ```php
 $arr = [1,2,3];
