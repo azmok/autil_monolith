@@ -15,7 +15,7 @@ I'm provably intermediate level.
 
 I write short tutorial in '@Test/autil.test.php' to use this library. written mainly for novice PHP programmers into consideration.
 
-This library make many duplicated, verbose built-in functions bind up to relatively simple functions for daily use.
+This library make many duplicated, verbose built-in functions, that is outdated, procedural-style, bind up to relatively simple, versatile functions for daily use.
 
 I convinced that PHP is very norvice-friendly. And as you learn more, and then using many features about OOP or FP, that has been gradually added to PHP as time passing, makes learning PHP more interesting!
 
