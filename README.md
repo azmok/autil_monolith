@@ -19,7 +19,8 @@ I curretly has been implementing JavaScript-like OOP features in PHP. This is ve
 
 
 
-
+# Credit
+This library uses css of [Bootstrup](https://getbootstrap.com) thorugh CDN.
 
 
 
