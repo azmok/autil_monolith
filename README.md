@@ -11,7 +11,7 @@ Vital, versatile, core utility function libray for PHP7 development.
 
 I wrote this functions for my personal use. However, I think taht this is also useful for novice developers.
   
-Short tutorial in '@Test/autil.test.php' make it easier to use this library for novice, written for programming novice into consideration.
+Short tutorial in '@Test/autil.test.php' makes it easier to use this library for novice, written for programming novice into consideration.
 
 This library makes many duplicated, verbose built-in functions, that is outdated, procedural-style, bind up to relatively simple, versatile functions for daily use.
 
@@ -166,7 +166,7 @@ isType("[Number]", 3 ); // ture
 <h2 id="string">String</h2>
 
 #### `length( `*`str`*` )`
-`length :: * -> Num`
+`length :: Str -> Num`
 - Return length of String. Equivalent to built-in `strlen()`.
 
 \*`length()` function also accept different data types, Array, Function, Object. About more detail, see corresponding section of `length()`.
@@ -178,9 +178,9 @@ length( "abcd" ); // 4
 ```
 
 
-#### `prepend( `*`str`*` )`
-`concat :: Str -> ...Str`
-- concatenate Strs and return concatnated string
+#### `concat( `*`str`*`, `*`...str`*` )`
+`concat :: Str -> ...Str -> Str`
+- Return concatnated string
 
 ```php
 $str = "This is demo";
@@ -192,13 +192,16 @@ echo concat($str, " Apple", " and Banana."); // This is Apple and Banana.
 
 #### `split( `*`separator`*`, `*`str`*` )`
 `split :: Str -> []`
-- split string by separator and store each string to array, and return the array. This function can acccept `""`(empty string) as *`separator`*.
+- split the string by separator and store each string to array, and return the array. This function can acccept `""`(empty string) as *`separator`*.
 
 ```php
 $str = "this is demo";
 _( split("", $str) ); // (t, h, i, s, , i, s, , d, e, m, o)
 
-// `split()` can accept empty string as `separatir`. (it is illegal in built-in `explode()` function of which the separator is empty string. If you want to do like those, instead you need to use `str_split()` function.)
+// `split()` can accept empty string as `separatir`. (It is illegal in built-in `explode()` function
+// of which the separator is empty string. If you want to do like those, instead you need to use 
+// `str_split()` function.)
+// 
 // `split()` is the merged version of `str_split()` and `explode()`.
 
 
@@ -208,8 +211,8 @@ _( split(" ",$str) ); // (this, is, demo)
 
 
 #### `toUpperCase( `*`str`*` )`
-`toUpper :: Str -> Str`
-- Return all upper-cased string.
+`toUpperCase :: Str -> Str`
+- Return the upper-cased string.
 
 ```php
 $str = "lower-case letter";
@@ -219,24 +222,24 @@ _( toUpperCase($str) );  // LOWER-CASE LETTER
 
 
 #### `toLowerCase( `*`str`*` )`
-`toUpper :: Str -> Str`
-- Return all lower-cased string.
+`toLowerCase :: Str -> Str`
+- Return the lower-cased string.
 
 ```php
 $str = "UPPER-CASE LETTER";
 
-_( toLowerCase($str) );  // lower-case letter";
+_( toLowerCase($str) );  // upper-case letter";
 ```
 
 
-#### `toCapitalCase( `*`str`*` )`
-`toCapitalCase: Str -> Str`
-- Return capitalized string.
+#### `toCamelCase( `*`str`*` )`
+`toCamelCase: Str -> Str`
+- Return the camel-cased string.
 
 ```php
-$str = "lower-case letter";
+$str = "lower case letter";
 
-_( toCapitalCase($str) );  // Lower-case letter
+_( toCamelCase($str) ); // lowerCaseLetter
 ```
 
 
@@ -252,7 +255,7 @@ _( toCapitalCase($str) );  // Lower-case letter
 <h2 id="array">Array</h2>
 
 #### `length( `*`arr`*` )`
-`length :: * -> Num`
+`length :: ( [] | Assoc ) -> Num`
 - Return length of the array. Equivalent to built-in `sizeof()`, `count()`.
 
 ```php
@@ -277,7 +280,7 @@ isAssoc( $assocArr ); // true
 
 
 #### `head( `*`arr`*` )`
-head :: [] -> *
+`head :: [] -> *`
 - Return first element of `arr`
 
 ```php
@@ -289,8 +292,8 @@ head( $arr ); // "a"
 
 
 #### `last( `*`arr`*` )`
-last :: [] -> *
-- Return last element of array `arr`
+`last :: [] -> *`
+- Return last element of `arr`
 
 ```php
 $arr = ["a", "b", "c"];
@@ -301,8 +304,8 @@ last( $arr ); // "c"
 
 
 #### `rest( `*`arr`*` )`
-rest :: [] -> []
-- Return copied `arr` array except first elements
+`rest :: [] -> []`
+- Return copied array of `arr` except first elements
 
 ```php
 $arr = ["a", "b", "c"];
@@ -311,8 +314,8 @@ rest( $arr ); // ("b", "c")
 ```
 
 #### `initial( `*`arr`*` )`
-rest :: [] -> []
-- Return copied `arr` array except last elements
+`initial :: [] -> []`
+- Return copied array of `arr` except last elements
 
 ```php
 $arr = ["a", "b", "c"];
@@ -322,7 +325,7 @@ rest( $arr ); // ("a", "b")
 
 
 #### `push( `*`val`*`, `*`arr`*` )`
-push :: (* -> []) -> []
+`push :: ( * -> [] ) -> []`
 - insert `val` to end of array `arr`. return item-inserted new array. Original `arr` is not affected.
 
 ```php
@@ -341,7 +344,7 @@ _( $arr ); // (1, 2, 3)
 
 
 #### `pushTo( `*`val`*`, `*`index`*`, `*`arr`*` )`
-pushTo :: (* -> Number -> []) -> *
+`pushTo :: ( * -> Number -> [] ) -> *`
 - push `val` into specified position `index` on `arr`. pre-existed element and rest of element are pushed back. Return new merged array. Original array is not affected.
 
 ```php
@@ -355,7 +358,7 @@ _( $arr ); // (1, 2, 3, 4)
 
 
 #### `take( `*`num`*`, `*`arr`*`)`
-take :: (Number -> []) -> []
+`take :: ( Number -> [] ) -> []’
 - take specified number `num` of elements from start in array and return new taked array.
 
 ```php
@@ -369,7 +372,7 @@ take(3, $arr); // (1, 2, 3)
 
 
 #### `takeAt( `*`startIndex`*`, `*`num`*`, `*`arr`*`)`
-takeAt :: (Number -> Number -> []) -> []
+`takeAt :: ( Number -> Number -> [] ) -> []`
 - take specified number `num` of elements from `startIndex` in array and return new taked array.
 
 ```php
@@ -384,8 +387,7 @@ takeAt(1, 3, $arr); // (2, 3, 4)
 
 #### `concat( `*`arr1`*`, `*`arr2`*` )`
 `concat :: ( [] -> [] ) -> []`
-- If all arguments are string, return concatenated string.
-- If all arguments are **not** string, return concatenated array.
+- Return concatenated array.
 
 ```php
 
@@ -396,11 +398,11 @@ concat([3], ["a", "b"]); // (3, "a", "b")
 
 
 #### `indexOf( `*`ArrItem`*`, `*`arr`*` )`
-`indexOf :: (* -> []) -> Num`
+`indexOf :: ( * -> [] ) -> Num`
 - Return index of element in array/assocArray. If isn't, return `false`.
 
 ```php
-$flatArr = ["a", "b", "c"];
+$normalArr = ["a", "b", "c"];
 
 indexOf("c", $flatArr); // 2
 
@@ -424,17 +426,16 @@ indexOf("name", $AssocArr); // 1
 
 
 #### `_forEach( `*`fn`*`, `*`arr`*` )`
-`_forEach :: (fn -> []) -> null`
-- Iterate over the array arr with callback function `fn`. Callback function fn is applied to each element of the array. no return value.
+`_forEach :: ( fn -> [] ) -> null`
+- Iterate over the `arr` with callback function `fn`. Callback function `fn` is applied to each element of the array. No return value.
 
-parameter  
-   callback($val, $index, $arr):  
+The callback function `fn` takes three prameter, and in invocation each parameter is evaluated to the value as specified below.
+
+   `fn($val, $index, $arr)`:  
       $val: current element value of array on iteration.  
       $index: current element index number in array.  
       $arr: the array iterated over.  
       
-   arr:  
-      array  
       
 ```php
 $arr = [1,2];
@@ -516,8 +517,8 @@ LogArrElms( [1,2] );
 
 
 #### `map( `*`mappingFn`*`, `*`arr`*` )`
-`map :: ((* -> *) -> []) -> []`
-- applying function `mappingFn` to each element of array `arr` and return new mapped array.
+`map :: ( (* -> *) -> [] ) -> []`
+- Applying callback function `mappingFn` to each element of array `arr` and return new mapped array.
 
 ```php
 $arr = [1,2,3];
@@ -531,8 +532,8 @@ _( map($add1, $arr) ); // (2,3,4)
 
 
 #### `filter( `*`predicateFn`*`, `*`arr`*` )`
-`filter` :: ((* -> bool) -> []) -> []
-- filtering elements of array with `predicateFn` and return new filtered array.
+`filter :: ( (* -> bool) -> [] ) -> []`
+- Filtering elements of array with callback function `predicateFn` and return new filtered array.
 
 ```php
 #-----  arr  ----------------------
@@ -572,8 +573,8 @@ _( filter($isEven_assoc, $assocArr) );
 
 
 #### `some( `*`predicateFn`*`, `*`arr`*` )`
-`some :: ((* -> bool) -> []) -> bool`
-- Return true if at least one element satisfy condition of `predicateFn`.
+`some :: ( (* -> bool) -> [] ) -> bool`
+- Return true if callback funcition `predicateFn` return true in ,at least, one element
 
 ```php
 $arr = [1,2,3];
@@ -603,8 +604,8 @@ some( $lessThan2, $arr) ); // true
 
 
 #### `every( `*`predicateFn`*`, `*`arr`*` )`
-`every :: ((* -> bool) -> []) -> bool`
-- Return true if all element satisfy condition of `predicateFn`.
+`every :: ( (* -> bool) -> [] ) -> bool`
+- Return true if callback funcition `predicateFn` return true in all elements
 
 ```php
 $arr = [1,2,3];
@@ -647,9 +648,9 @@ every($lessThanEq2, $arr); // false
 <br>
 <h2 id="function">Function</h2>
 
-#### `length( `*`any`*` )`
-`length :: * -> Num`
-- Return paremter length of the function.
+#### `length( `*`fn`*` )`
+`length :: Fn -> Num`
+- Return length of parameters of the function.
 
 ```php
 $add = function ($x, $y){
@@ -660,7 +661,7 @@ length( add ); // 2
 
 
 #### `call( `*`fn`*`, `*`...args`*` )`
-`call :: (fn -> ...*) -> *`
+`call :: ( Fn -> ...* ) -> *`
 - call `fn` with arbitrary-length list of arguments.
 
 ```php
@@ -668,9 +669,9 @@ length( add ); // 2
 ```
 
 
-#### `apply( `*`fn`*`, `*`arrArg`*` )`
-`apply :: (fn -> []) -> *`
-- call `fn` with arguments of array `addArg`.
+#### `apply( `*`fn`*`, `*`arr`*` )`
+`apply :: ( fn -> [] ) -> *`
+- call `fn` with arguments of array `arr`.
 
 ```php
 
@@ -694,13 +695,36 @@ length( add ); // 2
 <br>
 <h2 id="html">HTML</h2>
 
-#### pretty
+#### `pretty( `*`arr`*` | `*`assocArr`*` )`
+`pretty :: ( [] | Assoc ) -> null`
+- Output more human-readable format of array or associative array than built-in `print_r`/`var_dump`
 
+```php
+$arr = [1,2,3];
+pretty( $arr );
+/****  output  ****
+[0]: 1
+[1]: 2
+[2]: 3
+/*****************/
+
+
+
+$assoc = [
+   "id" => "001",
+   "name" => "Goku",
+];
+pretty( $assoc );
+/****  output  ****
+[id]: "001"
+[name]: "Goku"
+/*****************/
+```
 
 
 #### `inject( `*`str`*`, `*`tagName="h1"`*`, `*`attrs=[]`*` )`
-`inject :: (Str -> Str -> []) -> null`
-- Inject string to HTML. embracing tagName(for HTML tgaName), attrs(for HTML attributes)
+`inject :: ( Str -> Str -> [] ) -> null`
+- Inject string to HTML. Embracing `tagName`(for HTML tgaName), `attrs`(for HTML attributes)
 
 ```php
 inject( "hi" );
@@ -724,8 +748,24 @@ inject( "meow!", "h3", $attrArray );
 
 #### `toAttr( `*`assocArr`*` )`
 `toAttr :: [] -> Str`
-- convert associative array to string for HTML attribute format( 'Attribute="value"' )
+- Return a string to which `assocArr` is coverted to for HTML attribute.
 
 ```php
+$assoc = [
+   "class" => "nav",
+   "id" => "main-nav",
+];
+_( toAttr($assoc) ); // class='nav' id='main-nav'
 
+// case of 'style' attribute
+$assoc2 = [
+   "class" => "nav",
+   "style" => [
+      "color" => "#333",
+      "border" => "1px solid blue",
+   ],
+   "alt" => "navigation_bar",
+];
+_( toAttr($assoc2) );
+// class='nav' style='color: #333; border: 1px solid blue' alt='navigation_bar'
 ```
