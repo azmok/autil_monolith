@@ -122,7 +122,7 @@ gettype( "a" ); // "string"
 type( 1 ); // "[Number]"
 type( "a" ); // "[String]"
 type( [1,2,3] ); // "[Array]"
-type( [] ); // "[AssocArray]"
+type( ["name" => "Goku"] ); // "[AssocArray]"
 type( function(){} ); // "[Function]"
 type( new MyClass() ); // "[Object]"
 ```
