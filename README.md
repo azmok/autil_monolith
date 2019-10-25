@@ -311,15 +311,15 @@ rest( $arr ); // ("a", "b")
 ```
 
 
-#### `push( `*`val`*`, `*`arr`*` )`
+#### `push( `*`val`*`, `*`&arr`*` )`
 `push :: ( * -> [] ) -> []`
-- insert `val` to end of array `arr`. return item-inserted new array. Original `arr` is not affected.
+- insert `val` to end of array `arr`. Return the reference of original array. Original `arr` is affected.
 
 ```php
 $arr = [1, 2, 3];
 
-_( push(4, $arr) ); // (1, 2, 3, 4)
-_( $arr ); // (1, 2, 3)
+push(4, $arr);
+_( $arr ); // (1, 2, 3, 4)
 ```
 
 
@@ -330,16 +330,15 @@ _( $arr ); // (1, 2, 3)
 
 
 
-#### `pushTo( `*`val`*`, `*`index`*`, `*`arr`*` )`
+#### `pushTo( `*`val`*`, `*`index`*`, `*`&arr`*` )`
 `pushTo :: ( * -> Number -> [] ) -> *`
-- push `val` into specified position `index` on `arr`. pre-existed element and rest of element are pushed back. Return new merged array. Original array is not affected.
+- push `val` into specified position `index` on `arr`. pre-existed element and rest of element are pushed back. Return the reference of original array. Original array is affected.
 
 ```php
 $arr = [1,2,3,4];
-$pushedArr = pushTo("+", 2, $arr);
 
-_( $pushedArr ); // (1, 2, +, 3, 4)
-_( $arr ); // (1, 2, 3, 4)
+pushTo("+", 2, $arr);
+_( $arr ); // (1, 2, +, 3, 4)
 ```
 
 
