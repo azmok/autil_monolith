@@ -474,7 +474,8 @@ _forEach( $logArrElms, $flatArr ); // same output
 
 
 
-/* If you want to use nearest outer scope variable, must use 'use' keyword in callback function definition. */
+// If you want to use nearest outer scope variable, 
+//  must use 'use' keyword in callback function definition.
 
 
 function LogArrElms($arr){
@@ -493,7 +494,7 @@ local Var!
 1
 /****************/
 
-If 'use' keyword is absent...
+// If 'use' keyword is absent...
 
 function LogArrElms($arr){
    $local = "local Var!";
