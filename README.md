@@ -162,6 +162,7 @@ isType("[Number]", 3 ); // ture
 
 
 <h1 id="each_data_types">Each Data Types</h1>
+<br>
 <h2 id="string">String</h2>
 
 #### `length( `*`str`*` )`
