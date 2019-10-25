@@ -37,7 +37,7 @@ This library uses css of [Bootstrup](https://getbootstrap.com) thorugh CDN.
 - [Each Data Types](#each_data_types)
 - - [String](#string)
 - - [Array](#array)
-- - [Assoc Array(Associative Array)](#assoc_array)
+- - [Assoc Array](#assoc_array)
 - - [Function](#function)
 
 - [HTML](#html)
@@ -607,7 +607,7 @@ every($lessThan2, $arr); // false
 
 
 <br>
-<h2 id="assoc_array">Assoc Array(Associative Array</h2>
+<h2 id="assoc_array">Assoc Array</h2>
 
 #### `length( `*`assoc`*` )`
 `length :: ( Assoc ) -> Num`
@@ -640,12 +640,19 @@ isAssoc( [1,2,3] ); // false
 
 
 
-##### `joinWith( `*`jointer`*`, `*`arr`*` )`
-`joinWith :: -> `
-- 
+##### `joinWith( `*`jointer`*`, `*`assoc`*` )`
+`joinWith :: (( Str|Fn ) -> Assoc ) -> []`
+- Return array of which each element is joined string with jointer
 
 ```php
+$PersonHP = [
+   "Goku" => 999,
+   "Chichi" => 10,
+   "Bejita" => 990,
+];
 
+_( joinWith("-", $PersonHP) ) ;
+// (Goku-999 , Chichi-10 , Bejita-990)
 ```
 
 
