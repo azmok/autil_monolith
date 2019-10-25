@@ -247,7 +247,7 @@ _( toCapitalCase($str) );  // Lower-case letter
 
 
 
-
+<br>
 <h2 id="array">Array</h2>
 
 #### `length( `*`arr`*` )`
@@ -642,7 +642,7 @@ every($lessThanEq2, $arr); // false
 
 
 
-
+<br>
 <h2 id="function">Function</h2>
 
 #### `length( `*`any`*` )`
@@ -689,7 +689,7 @@ length( add ); // 2
 
 
 
-
+<br>
 <h2 id="html">HTML</h2>
 
 #### pretty
