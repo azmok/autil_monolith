@@ -4,7 +4,6 @@ namespace V;
 
 
 
-
 /* 
   This library use Bootstrup.css through CDN.
  
@@ -33,7 +32,11 @@ namespace V;
  * THE SOFTWARE.
  *
  */
-/****************  cas, js initializs, helper  *******/
+
+
+
+
+
 define('PATH_CSS_BOOTSTR', "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
 
 
@@ -98,6 +101,13 @@ function unescape($str, ...$flags){
 
 
 
+
+
+
+
+
+
+/*  */
 
 /**
  *
