@@ -156,10 +156,11 @@ isType("[Number]", 3 ); // ture
 
 
 
-  
-  
-  
-  
+
+
+
+
+<br>
 <br>
 <h1 id="each_data_types">Each Data Types</h1>
 <br>
