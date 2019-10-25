@@ -48,7 +48,7 @@ This library uses css of [Bootstrup](https://getbootstrap.com) thorugh CDN.
 <h1 id="debugging">Debugging</h1>
 
 #### `_( `*`...any`*` )`
-`_ :: * -> * -> ... -> null`
+`_ :: ...* -> null`
 - inject arguments into HTML for debugging
 
 ```php
@@ -80,12 +80,13 @@ _( $assoc1 );
 
 
 #### `pretty( `*`arr`*` )`
-`pretty :: ( [] ) -> Null`
-- Inject array to HTML that is more easy-to-recognaize format than built-in `print_r()`/`var_dump()`
+`pretty :: ( [] | Assoc ) -> Null`
+- Inject array/assocArray to HTML that is more easy-to-recognaize format than built-in `print_r()`/`var_dump()`
 
 ```php
-$flatArr = ["a", "b", "c"];
-pretty( $flatArr );
+$arr = ["a", "b", "c"];
+
+pretty( $arr );
 // [0]: a
 // [1]: b
 // [2]: c
@@ -93,8 +94,9 @@ pretty( $flatArr );
 
 $assocArr = [
    "id" => "001",
-   "name" => "buruma",
+   "name" => "Buruma",
 ];
+
 pretty( $assocArr );
 // [id]: 001
 // [name]: buruma
