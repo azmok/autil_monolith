@@ -43,10 +43,6 @@ define('PATH_CSS_BOOTSTR', "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/c
 
 
 
-
-
-
-
 /**
  *
  */
@@ -130,28 +126,3 @@ function highlight($str){
    ->addStyle("body", [
          "padding" => "2rem",
    ]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
