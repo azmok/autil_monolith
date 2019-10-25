@@ -7,6 +7,8 @@ Vital, versatile, core utility function libray for PHP7 development.
 - Read and follow instructions in that file.
 
 # Who this is for
+**For novice or intermediate.**
+
 I write this functions for my personal use. However, I think taht this is also useful for novice developers.
   
 Short tutorial in '@Test/autil.test.php' make it easier to use this library for novice, written for programming novice into consideration.
