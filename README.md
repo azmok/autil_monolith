@@ -7,19 +7,15 @@ Vital, versatile, core utility function libray for PHP7 development.
 - Read and follow instructions in that file.
 
 # Who this is for
-I write this functions for my personal use. However, This is also useful for other novice developer.
+I write this functions for my personal use. However, I think taht this is also useful for novice developers.
+  
+Short tutorial in '@Test/autil.test.php' make it easier to use this library for novice, written for programming novice into consideration.
 
-I think that PHP resources on the web that hit by searching is mostly very old or mostly procedural style. I supposed this is mostly PHP5's feature or earlyer version.  This is useful for deep understanding for intermediate or professional, but for norvice, very boring stuff and complicated.
+This library makes many duplicated, verbose built-in functions, that is outdated, procedural-style, bind up to relatively simple, versatile functions for daily use.
 
-I'm provably intermediate level.
+I convinced that PHP is very norvice-friendly and interesting scripting language. As you learn more and then using many features of OOP or FP, that has been gradually added to PHP as time passing, makes learning PHP more interesting!
 
-I write short tutorial in '@Test/autil.test.php' to use this library. written mainly for novice PHP programmers into consideration.
-
-This library make many duplicated, verbose built-in functions, that is outdated, procedural-style, bind up to relatively simple, versatile functions for daily use.
-
-I convinced that PHP is very norvice-friendly. And as you learn more, and then using many features about OOP or FP, that has been gradually added to PHP as time passing, makes learning PHP more interesting!
-
-I curretly has been implementing JavaScript-like OOP features in PHP. This is very interesting. 
+I curretly has been implementing JavaScript-like OOP features in PHP. This is very exciting!
 
 
 
