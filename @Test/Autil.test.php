@@ -114,7 +114,7 @@ echo type(1); // "[Number]"
 
 use function
    # testing, debug
-   V\_, V\type, V\isType, V\isArray, V\isAssoc, V\pretty,
+   V\isType, V\isArray, V\isAssoc, V\pretty,
    
    # html 
    V\inject, 
