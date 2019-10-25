@@ -37,6 +37,7 @@ This library uses css of [Bootstrup](https://getbootstrap.com) thorugh CDN.
 - [Each Data Types](#each_data_types)
 - - [String](#string)
 - - [Array](#array)
+- - [Assoc Array(Associative Array)](#assoc_array)
 - - [Function](#function)
 
 - [HTML](#html)
@@ -260,22 +261,6 @@ _( toCamelCase($str) ); // lowerCaseLetter
 
 ```php
 length( [1,2,3] ); // 3
-```
-
-
-#### `isAssoc( `*`any`*` )`
-`isAssoc :: * -> Bool`
-- Return true if passed argument is Associative array.
-
-```php
-$flatArr = [1,2,3];
-$assocArr = [
-   "id" => "001",
-   "name" => "goku"
-];
-
-isAssoc( $flatArr ); // false
-isAssoc( $assocArr ); // true
 ```
 
 
@@ -542,23 +527,7 @@ $isEven = function($x){
    return $x % 2 === 0;
 };
 
-_( filter($isEven, $arr) ); // 2, 4
-
-
-
-#-----  assocArr  -----------------
-$assocArr = [
-   "one" => 1,
-   "two" => 2,
-];
-$isEven_assoc = function($key, $val){
-   return $val % 2 === 0;
-};
-
-_( filter($isEven_assoc, $assocArr) );
-//--- output ----------
-// [0]:
-//   [two]: 2   /**/
+_( filter($isEven, $arr) ); // [2, 4]
 ```
 
 
@@ -609,31 +578,201 @@ some( $lessThan2, $arr) ); // true
 
 ```php
 $arr = [1,2,3];
-
-every(function($curr){
-    return $curr <= 3;
-}, $arr); // true
-
-every(function($curr){
-    return $curr <= 2;
-}, $arr); // false
-
-
-// function can be passed by variable name
-$lessThanEq3 = function($curr){
-    return $curr <= 3;
+$lessThan5 = function($curr){
+    return $curr < 5;
 };
 
-every($lessThanEq3, $arr); // true
+every($lessThan5, $arr); // true
 
-
-
-$lessThanEq2 = function($curr){
-    return $curr <= 2;
+$lessThan2 = function($curr){
+    return $curr < 2;
 };
 
-every($lessThanEq2, $arr); // false
+every($lessThan2, $arr); // false
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<h2 id="assoc_array">Assoc Array(Associative Array</h2>
+
+#### `length( `*`assoc`*` )`
+`length :: ( Assoc ) -> Num`
+- Return length of the array. Equivalent to built-in `sizeof()`, `count()`.
+
+```php
+$assoc = [
+   "id" => "001",
+   "name" => "Goku",
+];
+
+length( $assoc ); // 2
+```
+
+
+
+#### `isAssoc( `*`any`*` )`
+`isAssoc :: * -> Bool`
+- Return true if passed argument is Associative array.
+
+```php
+$assoc = [
+   "id" => "001",
+   "name" => "Goku",
+];
+
+isAssoc( $assocArr ); // true
+isAssoc( [1,2,3] ); // false
+```
+
+
+
+##### `joinWith( `*`jointer`*`, `*`arr`*` )`
+`joinWith :: -> `
+- 
+
+```php
+
+```
+
+
+#### `_forEach( `*`fn`*`, `*`assoc`*` )`
+`_forEach :: ( fn -> assoc ) -> null`
+- Iterate over the `arr` with callback function `fn`. Callback function `fn` is applied to each element of the assocArray. No return value.
+
+The callback function `fn` takes four prameter, and in invocation, each parameter is evaluated to the value as specified below.
+
+   `fn($val, $index, $arr)`:  
+      $key: current element key of assocArray on iteration.  
+      $val: current element value of assocArray on iteration.  
+      $index: current element index number in assocArray.  
+      $assocArr: the assocArray iterated over.  
+      
+      
+```php
+$assoc = [
+   "id" => "001",
+   "name" => "Goku",
+];
+
+_forEach( function($key, $val, $indx, $assoc){
+   _( "key: ", $key );
+   _( "val: ", $val );
+   _( "indx: ", $indx );
+   _( "arr: ",  $assoc );
+   _("");
+}, $assoc );
+
+
+/****  output  ****
+key: id 
+val: 001 
+indx: 0 
+arr: 
+[id]: "001"
+[name]: "Goku" 
+
+key: name 
+val: Goku 
+indx: 1 
+arr: 
+[id]: "001"
+[name]: "Goku" 
+/*****************/
+```
+
+
+
+#### `map( `*`mappingFn`*`, `*`assocArr`*` )`
+`map :: ( (* -> *) -> [] ) -> []`
+- Applying callback function `mappingFn` to each element of assocArray `assocArr` and return new mapped array.
+
+```php
+$PersonHP = [
+   "Goku" => 999,
+   "Chichi" => 10,
+   "Bejita" => 990,
+];
+$mappedArr = map(function($key, $val, $indx){
+   return "{$val}'s HPis {$val}:: {$indx}";
+}, $PersonHP);
+
+pretty( $mappedArr );
+/****  output  **********
+[0]: 999's HPis 999:: 0
+[1]: 10's HPis 10:: 1
+[2]: 990's HPis 990:: 2
+/***********************/
+```
+
+
+
+#### `filter( `*`predicateFn`*`, `*`arr`*` )`
+`filter :: ( (* -> bool) -> [] ) -> []`
+- Filtering elements of array with callback function `predicateFn` and return new filtered array.
+
+```php
+$PersonHP = [
+   "Goku" => 999,
+   "Chichi" => 10,
+   "Bejita" => 990,
+];
+
+$filtered = filter(function($key, $val, $indx){
+   return $val > 900;
+}, $PersonHP);
+
+_( $filtered );
+
+/****  output  ****
+[Goku]: 999
+[Bejita]: 990
+/*****************/
+```
+
+
+
+#### `reduce( `*`reducerFn`*`, `*`initVal`*`, `*`arr`*` )`
+`reduce :: ((* -> * -> *) -> * -> []) -> *`
+
+```php
+
+```
+
+
+
+#### `some( `*`predicateFn`*`, `*`arr`*` )`
+`some :: ( (* -> bool) -> [] ) -> bool`
+- Return true if callback funcition `predicateFn` return true in ,at least, one element
+
+```php
+
+```
+
+
+#### `every( `*`predicateFn`*`, `*`arr`*` )`
+`every :: ( (* -> bool) -> [] ) -> bool`
+- Return true if callback funcition `predicateFn` return true in all elements
+
+```php
+
+```
+
+
+
 
 
 
