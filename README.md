@@ -45,7 +45,7 @@ I curretly has been implementing JavaScript-like OOP features in PHP. This is ve
 
 
 
-<h2 id="debugging">Debugging</h2>
+<h1 id="debugging">Debugging</h1>
 
 #### `_( `*`...any`*` )`
 `_ :: * -> * -> ... -> null`
@@ -102,7 +102,7 @@ pretty( $assocArr );
 
 
 
-<h2 id="types">Type</h2>
+<h1 id="types">Type</h1>
 
 #### `type( `*`any`*` )`
 `type :: * -> Str`
@@ -161,8 +161,8 @@ isType("[Number]", 3 ); // ture
 
 
 
-<h2 id="each_data_types">Each Data Types</h2><br><br>
-<h3 id="string">String</h3>
+<h1 id="each_data_types">Each Data Types</h1>
+<h2 id="string">String</h2>
 
 #### `length( `*`str`*` )`
 `length :: * -> Num`
@@ -248,7 +248,7 @@ _( toCapitalCase($str) );  // Lower-case letter
 
 
 
-<h3 id="array">Array</h3>
+<h2 id="array">Array</h2>
 
 #### `length( `*`arr`*` )`
 `length :: * -> Num`
@@ -473,7 +473,7 @@ _forEach( $logArrElms, $flatArr ); // same output
 
 
 
-/* If you want to use nearest outer scope variable, must use 'use' keyword in callback function definition.
+/* If you want to use nearest outer scope variable, must use 'use' keyword in callback function definition. */
 
 
 function LogArrElms($arr){
@@ -643,7 +643,7 @@ every($lessThanEq2, $arr); // false
 
 
 
-<h3 id="function">Function</h3>
+<h2 id="function">Function</h2>
 
 #### `length( `*`any`*` )`
 `length :: * -> Num`
@@ -690,7 +690,7 @@ length( add ); // 2
 
 
 
-<h2 id="html">HTML</h3>
+<h2 id="html">HTML</h2>
 
 #### pretty
 
