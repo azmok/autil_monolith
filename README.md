@@ -35,7 +35,6 @@ I curretly has been implementing JavaScript-like OOP features in PHP. This is ve
 # Function Reference
 - [Debugging](#debugging)
 - [Types](#types)
-- [Predicate](#predicate)
 - [Each Data Types](#each_data_types)
 - - [String](#string)
 - - [Array](#array)
@@ -144,10 +143,6 @@ Below table summarize gettype(), type()
 
 
 
-
-
-<h2 id="predicate">Predicate</h2>
-
 #### `isType( `*`typeStr`*`, `*`any`*` )`
 `isType :: typeStr -> * -> Bool`
 - Return true if *`typeStr`* match *`any`*'s data type
@@ -160,7 +155,13 @@ isType("[Number]", 3 ); // ture
 
 
 
-<h2 id="each_data_types">Each Data Type</h2>
+
+
+
+
+
+
+<h2 id="each_data_types">Each Data Types</h2><br><br>
 <h3 id="string">String</h3>
 
 #### `length( `*`str`*` )`
