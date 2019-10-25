@@ -17,12 +17,6 @@ function br($num=2){
    }
 }
 
-function includes($searchVal, $str){
-   $regex = "/".  $searchVal   ."/";
-   $res = preg_match($regex, $str);
-   
-   return $res ? true : false;
-}
 
 function exho($val){
    echo "$val<br/>";
@@ -193,6 +187,10 @@ function type($val){
    }
 }
 
+
+/**
+ *
+ */
 function isType($type, $val){
    if( type($val) === $type ){
       return true;
@@ -200,6 +198,17 @@ function isType($type, $val){
       return false;
    }
 }
+
+
+/**
+ *
+ */
+function includes($searchVal, $str){
+   $pos = strpos($str, $searchVal);
+   
+   return isType('[Number]', $pos) ? true : false;
+}
+
 
 function length($arg){
    
@@ -914,6 +923,10 @@ function filterFlags($regexStr, $flag){
    return $newRegObj->value();
 }
 
+
+/**
+ *
+ */
 function pushTo($val, $index, $arr){
    $lastIndex = length($arr) - 1;
    $before = take($index, $arr);
@@ -926,12 +939,15 @@ function pushTo($val, $index, $arr){
 }
 
 
-function match($regexStr, $str, $offset=false){
+/**
+ *
+ */
+function match($searchPat, $str, $offset=false){
    
    ## $searchPat :: [Regex]
-   if( isType("[Regex]", $regexStr) ){
-      $flags = \OOPe\RegExpO::getFlags($regexStr);
-      $regex = \OOPe\RegExpO::getRegex($regexStr);
+   if( isType("[Regex]", $searchPat) ){
+      $flags = \OOPe\RegExpO::getFlags($searchPat);
+      $regex = \OOPe\RegExpO::getRegex($searchPat);
       
       ## global match
       if( $flags  &&  in_array("g", $flags) ){
@@ -965,13 +981,21 @@ function match($regexStr, $str, $offset=false){
             
             return $matches[0];
          }
-         //return $matches;
       }
+   
+   ## $searchPat :: [String]
+   } elseif ( isType("[String]", $searchPat) ){
+      return strpos($str, $searchPat);
    } else {
       throw new \Exception("Invalid type of arguments in 'match()'");
    }
 }
 
+
+
+/**
+ *
+ */
 function replace($searchPattern, $replacePattern, $str){
    ## $searchPattern === [Regex]
    
