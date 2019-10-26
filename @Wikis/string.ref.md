@@ -2,7 +2,7 @@
 
 #### `length( `*`str`*` )`
 `length :: Str -> Num`
-- Return length of String. Equivalent to built-in `strlen()`.
+- Return length of *`Str`*. Equivalent to built-in `strlen()`.
 
 ```php
 length( "a" ); // 1
@@ -20,16 +20,16 @@ length( "abcd" ); // 4
 - Return concatnated string
 
 ```php
-$str = "This is demo";
+$str = "apple";
 
-echo concat($str, " sentence."); // This is demo sentence.
-echo concat($str, " Apple", " and Banana."); // This is Apple and Banana.
+echo concat($str, "Banana"); // appleBanana
+echo concat($str, ", banana", ", cherry" // apple, banana, cherry
 ```
 
 
 #### `split( `*`separator`*`, `*`str`*` )`
 `split :: Str -> []`
-- split the string by separator and store each string to array, and return the array. This function can acccept `""`(empty string) as *`separator`*.
+- Return the array consisting of splitted string. `split()` divide the *`str`* by *`separator`* and store each separated string to array. This function can acccept `""`(empty string) as *`separator`*.
 
 ```php
 $str = "this is demo";
