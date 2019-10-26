@@ -11,7 +11,7 @@ Vital, versatile, core utility function libray for PHP7 development.
 
 I wrote this functions for my personal use. However, I think taht this is also useful for novice developers.
   
-Short tutorial in '@Test/autil.test.php' makes it easier to use this library for novice, written for programming novice into consideration.
+Short tutorial in '@demo/demo.php' makes it easier to use this library for novice, written for programming novice into consideration.
 
 This library makes many duplicated, verbose built-in functions, that is outdated, procedural-style, bind up to relatively simple, versatile functions for daily use.
 
