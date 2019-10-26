@@ -28,9 +28,7 @@ function getNamespaces($str){
 
 
 ### class autoloader
-spl_autoload_register(function ($name) {
-   $Path_Autil = __DIR__;
-   
+spl_autoload_register(function ($name) use($Path_Autil)
    if( strpos($name, '\\') ){
       list($namespace, $className) = getNamespaces($name);
    }
@@ -44,9 +42,7 @@ spl_autoload_register(function ($name) {
 
 
 ###  trait autoloader
-spl_autoload_register(function ($name) {
-   $Path_Autil = __DIR__;
-   
+spl_autoload_register(function ($name) use($Path_Autil){
    if( strpos($name, '\\') ){
       list($namespace, $traitName) = getNamespaces($name);
    }
