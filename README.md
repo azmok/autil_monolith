@@ -803,7 +803,7 @@ _( $filtered );
 $add = function ($x, $y){
    return $x + $y;
 };
-length( add ); // 2
+length( $add ); // 2
 ```
 
 
@@ -842,33 +842,6 @@ length( add ); // 2
 <br>
 <h2 id="html">HTML</h2>
 
-#### `pretty( `*`arr`*` | `*`assocArr`*` )`
-`pretty :: ( [] | Assoc ) -> null`
-- Output more human-readable format of array or associative array than built-in `print_r`/`var_dump`
-
-```php
-$arr = [1,2,3];
-pretty( $arr );
-/****  output  ****
-[0]: 1
-[1]: 2
-[2]: 3
-/*****************/
-
-
-
-$assoc = [
-   "id" => "001",
-   "name" => "Goku",
-];
-pretty( $assoc );
-/****  output  ****
-[id]: "001"
-[name]: "Goku"
-/*****************/
-```
-
-
 #### `inject( `*`str`*`, `*`tagName="h1"`*`, `*`attrs=[]`*` )`
 `inject :: ( Str -> Str -> [] ) -> null`
 - Inject string to HTML. Embracing `tagName`(for HTML tgaName), `attrs`(for HTML attributes)
@@ -895,7 +868,7 @@ inject( "meow!", "h3", $attrArray );
 
 #### `toAttr( `*`assocArr`*` )`
 `toAttr :: [] -> Str`
-- Return a string to which `assocArr` is coverted to for HTML attribute.
+- Return a string to which `assocArr` is coverted for HTML attributes.
 
 ```php
 $assoc = [
@@ -914,5 +887,5 @@ $assoc2 = [
    "alt" => "navigation_bar",
 ];
 _( toAttr($assoc2) );
-// class='nav' style='color: #333; border: 1px solid blue' alt='navigation_bar'
+// class='nav' style='color: #333; border: 1px solid blue;' alt='navigation_bar'
 ```
