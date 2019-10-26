@@ -26,4 +26,4 @@ This library uses css of [Bootstrup](https://getbootstrap.com) thorugh CDN.
 
 
 # Wikis
-[Function Reference](./@Wikis/)
+[Function Reference](./wiki/)
