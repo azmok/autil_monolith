@@ -83,7 +83,7 @@ type( new MyClass() ); // "[Object]"
 
 Below table summarize `gettype()`, `type()`
 
-|      value     |   data types in PHP  |  `gettype()`<br>(built-in)  |  `type()`     |
+|      value     |  data types in PHP | (built-in)<br>`gettype()` | `type()` |
 | -------------- | --------- | ------------ | ----------  |
 |   `true`, `false`   |  boolean  |  `"boolean"`   | `"[Boolean]"` |
 |   `null`         |  null     |  `"NULL"`      | `"[Null]"`    |
