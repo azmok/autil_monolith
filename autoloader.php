@@ -7,6 +7,10 @@ use function V\_;
 
 
 
+$Path_Autil = __DIR__;
+
+
+
 function getNamespaces($str){
    $regex = '/^([\w\d_]+)\\\\(.+)/'; # three-backslashes is used as escape-sequence in regex
    preg_match($regex, $str, $matches);
@@ -25,12 +29,12 @@ function getNamespaces($str){
 
 ### class autoloader
 spl_autoload_register(function ($name) {
-   $PACKAGE_BASE = dirname(__FILE__);
+   $Path_Autil = __DIR__;
    
    if( strpos($name, '\\') ){
       list($namespace, $className) = getNamespaces($name);
    }
-   $filePath = $PACKAGE_BASE  ."/Classes/{$className}.class.php";
+   $filePath = $Path_Autil  ."/Classes/{$className}.class.php";
    
    if( is_readable( $filePath ) ){
       require_once $filePath;
@@ -41,12 +45,12 @@ spl_autoload_register(function ($name) {
 
 ###  trait autoloader
 spl_autoload_register(function ($name) {
-   $PACKAGE_BASE = dirname(__FILE__);
+   $Path_Autil = __DIR__;
    
    if( strpos($name, '\\') ){
       list($namespace, $traitName) = getNamespaces($name);
    }
-   $filePath = $PACKAGE_BASE  ."/Traits/{$traitName}.trait.php";
+   $filePath = $Path_Autil  ."/Traits/{$traitName}.trait.php";
    
    if( is_readable( $filePath ) ){
       require_once $filePath;
