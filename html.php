@@ -46,7 +46,7 @@ define('PATH_CSS_BOOTSTR', "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/c
 /**
  *
  */
-function inject($val, $tagName="h1", $assocArr=[]){
+function render($val, $tagName="h1", $assocArr=[]){
    if( match('~h\d~', $tagName) ){
       if( empty($assocArr) ){
          $assocArr = [
