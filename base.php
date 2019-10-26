@@ -536,12 +536,11 @@ function toAttr($assocArr){
          
          ### style attribute
          if( isAssoc($val) ){
-            $val_flatArr = joinWith(": ", $val);
-            $val_str = joinWith( "; ", $val_flatArr );
+            $val_arr = joinWith(": ", $val);
+            $val_str = joinWith( "; ", $val_arr )  .";";
             
             return "{$key}='{$val_str}'";
          } else {
-            //_(2);
             return "{$key}='{$val}'";
          }
       }, $assocArr);
