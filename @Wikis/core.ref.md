@@ -81,7 +81,7 @@ type( new MyClass() ); // "[Object]"
 ```
 
 
-Below table summarize `gettype()`, `type()`
+Below table summarize return values of `gettype()`, `type()`
 
 |      value     |  data types in PHP | (built-in)<br>`gettype()` | `type()` |
 | -------------- | --------- | ------------ | ----------  |
