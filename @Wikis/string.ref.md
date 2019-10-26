@@ -10,7 +10,9 @@ length( "abcd" ); // 4
 ```
 
 <br>
+
 *`length()` function also accept different data types, Array, Function, Object. About more detail, see corresponding section of `length()`.*
+
 <br>
 
 #### `concat( `*`str`*`, `*`...str`*` )`
