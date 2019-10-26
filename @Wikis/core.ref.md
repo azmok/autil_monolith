@@ -57,7 +57,7 @@ pretty( $assocArr );
 
 
 
-<h1 id="types">Type</h1>
+<h1 id="types">Types</h1>
 
 #### `type( `*`any`*` )`
 `type :: * -> Str`
@@ -81,9 +81,9 @@ type( new MyClass() ); // "[Object]"
 ```
 
 
-Below table summarize gettype(), type()
+Below table summarize `gettype()`, `type()`
 
-|      value     |   data types in PHP  |  `gettype()` (built-in)  |  `type()`     |
+|      value     |   data types in PHP  |  `gettype()`<br>(built-in)  |  `type()`     |
 | -------------- | --------- | ------------ | ----------  |
 |   `true`, `false`   |  boolean  |  `"boolean"`   | `"[Boolean]"` |
 |   `null`         |  null     |  `"NULL"`      | `"[Null]"`    |
