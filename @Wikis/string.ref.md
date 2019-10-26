@@ -29,7 +29,7 @@ echo concat($str, ", banana", ", cherry" // apple, banana, cherry
 
 #### `split( `*`separator`*`, `*`str`*` )`
 `split :: Str -> []`
-- Return the array consisting of splitted string. `split()` divide the *`str`* by *`separator`* and store each separated string to array. This function can acccept `""`(empty string) as *`separator`*.
+- Return the array consisting of splitted string. *`str`* is divided by *`separator`* and each separated string are stored into the array returned. This function can acccept `""`(empty string) as *`separator`*.
 
 ```php
 $str = "this is demo";
