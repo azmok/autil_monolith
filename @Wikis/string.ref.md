@@ -4,14 +4,14 @@
 `length :: Str -> Num`
 - Return length of String. Equivalent to built-in `strlen()`.
 
-*`length()` function also accept different data types, Array, Function, Object. About more detail, see corresponding section of `length()`.*
-
-
 ```php
 length( "a" ); // 1
 length( "abcd" ); // 4
 ```
 
+<br>
+*`length()` function also accept different data types, Array, Function, Object. About more detail, see corresponding section of `length()`.*
+<br>
 
 #### `concat( `*`str`*`, `*`...str`*` )`
 `concat :: Str -> ...Str -> Str`
