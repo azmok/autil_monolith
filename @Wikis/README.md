@@ -7,4 +7,4 @@
 - - [Assoc Array](./assocArray.ref.md)
 - - [Function](./function.ref.md)
 
-- [HTML](./core.ref.md#html)
+- [HTML](./html.ref.md#html)
