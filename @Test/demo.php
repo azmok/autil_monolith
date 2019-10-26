@@ -2,9 +2,7 @@
 
 
 
-
-
-require_once dirname(__FILE__, 2)  ."/__init__.php";
+require_once dirname(__Dir__)  ."/__init__.php";
 #  (1) By importing __init__.php file, all functions in Autil is imported to current file(this file).
 # 
 #     If you want to use Autil library in different file in different directory,
@@ -61,10 +59,6 @@ htdocs/
 
 
 
-/***********************************************************************
- *     add '/' to below '....*****' line end to start below demos    ↘︎
- **********************************************************************
-
 #-------------------------
 #  (2-1) using 'fully qualified name' to use function.
 #------------------------
@@ -115,64 +109,63 @@ echo type(1); // "[Number]"
 use function
    # testing, debug
    V\isType, V\isArray, V\isAssoc, V\pretty,
-   
-   # html 
-   V\inject, 
     
    # array
    V\_forEach, V\map, V\filter, V\reduce,
    
    # string
-   V\append, V\prepend, V\match, V\replace
-   # regex
-   
-   ;
+   V\append, V\prepend, V\match, V\replace,
+   # html
+   V\render;
 
    
 
-   
 
-inject("_()");
 
-###  testing  ###
+
+
+
+# output title
+render('_( $arr )');
+
 $arr = [1,2,3];
+
+_( $arr );  // (1 , 2 , 3)
+
+
+
+
+
+
+
+# output title
+render('_( $assocArr )');
+
 $assocArr = [
    "id" => "001",
    "name" => "Goku",
 ];
 
-$arr2d = [
-   1,
-   2,
-   [3,4,5],
-];
-
-$assocArr2d = [
-   "name" => "Goku",
-   "family" => [
-      "wife" => "Chichi",
-   ],
-];
-
-_( 1 );
-_( $arr );
 _( $assocArr );
-
-_( $arr2d );
-_( $assocArr2d );
-
-
-
-_("====");
-inject("pretty()");
+//----  outputp  ----
+// [id]: "001"
+// [name]: "Goku"
 
 
-pretty( 1 );
-pretty( $arr);
+
+
+
+
+render('pretty( $arr )');
+pretty( $arr );
+// [0]: 1
+// [1]: 2
+// [2]: 3
+
+render('pretty( $assocArr )');
 pretty( $assocArr );
-
-pretty( $arr2d );
-pretty( $assocArr2d );
+// [id]: "001"
+// [name]: "Goku"
 
 
 
