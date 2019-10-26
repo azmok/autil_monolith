@@ -28,7 +28,7 @@ function getNamespaces($str){
 
 
 ### class autoloader
-spl_autoload_register(function ($name) use($Path_Autil)
+spl_autoload_register(function ($name) use($Path_Autil){
    if( strpos($name, '\\') ){
       list($namespace, $className) = getNamespaces($name);
    }
