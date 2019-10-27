@@ -30,7 +30,7 @@ htdocs/
        
 
 
---- 'yourfile.php' ----
+--- 'yourFile.php' ----
 > <?php
 >
 >    require_once $_SERVER['DOCUMENT_ROOT']  . "/Autil/__init__.php";
