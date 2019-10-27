@@ -169,4 +169,12 @@ pretty( $assocArr );
 
 
 
-/**/
+/***********************************
+ There is more useful function in Autil.
+ For more detail and example, Please see 'Function Reference' in Wiki page.
+ 
+    - https://github.com/azumaooo/Autil/wiki
+ 
+ Nicely categorized table of contents is there.
+ 
+/**********************************/
