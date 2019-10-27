@@ -107,14 +107,18 @@ echo type(1); // "[Number]"
 
 
 use function
-   # testing, debug
-   V\isType, V\isArray, V\isAssoc, V\pretty,
-    
-   # array
-   V\_forEach, V\map, V\filter, V\reduce,
+   # debugging, types
+   V\isType, V\pretty, V\length,
    
    # string
-   V\append, V\prepend, V\match, V\replace,
+   V\concat, V\split, V\match, V\replace,
+   
+   # array
+   V\isArray, V\push, V\pushTo,
+   
+   # assocArray
+   V\isAssoc,
+   
    # html
    V\render;
 
