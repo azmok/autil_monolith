@@ -3,7 +3,7 @@ Vital, versatile, core utility function libray for PHP7 development.
 
 
 # How to use
-- Go to **'@Test/Autil.test.php'** file
+- Go to **'@demo/demo.php'** file
 - Read and follow instructions in that file.
 
 # Who this is for
