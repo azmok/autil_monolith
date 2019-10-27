@@ -46,13 +46,20 @@ define('PATH_CSS_BOOTSTR', "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/c
 /**
  *
  */
-function render($val, $tagName="h1", $assocArr=[]){
+function render($val, $tagName="h4", $assocArr=[]){
    if( match('~h\d~', $tagName) ){
       if( empty($assocArr) ){
          $assocArr = [
-            "class" => "bg-info text-white",
+            "class" => "",
             "style" => [
-               "padding" => "0 0.5rem",
+               "display" => "table",
+               "padding" => "0.5rem 1rem",
+               "margin-top" => "3.5rem",
+               "background" => "#f6e3d1",
+               "border-radius" => "9px",
+               "border" => "1px solid #ddd",
+               "box-shadow" => "2px 6px 9px 2px rgba(0,0,0,0.2)",
+               
             ],
          ];
       }
