@@ -1,20 +1,14 @@
 <?php
 
-
+namespace V;
 
 require_once $PACKAGE_BASE  ."/base.php";
-use function V\_;
-
-
-
-$Path_Autil = __DIR__;
 
 
 
 function getNamespaces($str){
    $regex = '/^([\w\d_]+)\\\\(.+)/'; # three-backslashes is used as escape-sequence in regex
    preg_match($regex, $str, $matches);
-   //_( $matches );
    
    $namespace = $matches[1];
    $className = $matches[2];
@@ -28,11 +22,13 @@ function getNamespaces($str){
 
 
 ### class autoloader
-spl_autoload_register(function ($name) use($Path_Autil){
+spl_autoload_register(function ($name){
+   global $PACKAGE_BASE;
+   
    if( strpos($name, '\\') ){
       list($namespace, $className) = getNamespaces($name);
    }
-   $filePath = $Path_Autil  ."/Classes/{$className}.class.php";
+   $filePath = $PACKAGE_BASE  ."/Classes/{$className}.class.php";
    
    if( is_readable( $filePath ) ){
       require_once $filePath;
@@ -42,13 +38,26 @@ spl_autoload_register(function ($name) use($Path_Autil){
 
 
 ###  trait autoloader
-spl_autoload_register(function ($name) use($Path_Autil){
+spl_autoload_register(function ($name){
+   global $PACKAGE_BASE;
+
    if( strpos($name, '\\') ){
       list($namespace, $traitName) = getNamespaces($name);
    }
-   $filePath = $Path_Autil  ."/Traits/{$traitName}.trait.php";
+   $filePath = $PACKAGE_BASE  ."/Traits/{$traitName}.trait.php";
    
    if( is_readable( $filePath ) ){
       require_once $filePath;
    }
 });
+
+
+
+
+
+
+
+
+
+
+

@@ -1,10 +1,7 @@
 <?php
 
-namespace OOPe;
+namespace V;
 
-
-require_once $PACKAGE_BASE  ."/base.php";
-use function V\_, V\type, V\toString, V\filter, V\map, V\object2String;
 
 
 /*--------------------------

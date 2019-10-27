@@ -1,6 +1,6 @@
 <?php
 
-
+namespace V;
 
 $PACKAGE_BASE = __DIR__;
 

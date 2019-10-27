@@ -1071,7 +1071,7 @@ function flattenDeep($arr, $depth=0){
  *
  */
 function filterFlags($regexStr, $flag){
-   $regObj = new \OOPe\RegExpO( $regexStr );
+   $regObj = new RegExpO( $regexStr );
    $newRegObj = $regObj->filterFlags($flag);
   // _( $newRegObj->value() );
    return $newRegObj->value();
@@ -1100,8 +1100,8 @@ function match($searchPat, $str, $offset=false){
    
    ## $searchPat :: [Regex]
    if( isType("[Regex]", $searchPat) ){
-      $flags = \OOPe\RegExpO::getFlags($searchPat);
-      $regex = \OOPe\RegExpO::getRegex($searchPat);
+      $flags = RegExpO::getFlags($searchPat);
+      $regex = RegExpO::getRegex($searchPat);
       
       ## global match
       if( $flags  &&  in_array("g", $flags) ){

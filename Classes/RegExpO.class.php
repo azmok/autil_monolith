@@ -1,12 +1,7 @@
 <?php
 
-namespace OOPe;
+namespace V;
 
-
-
-require_once $PACKAGE_BASE  ."/base.php";
-
-use function V\_, V\filter, V\concat, V\joinWith, V\match, V\split, V\pretty, V\toArray, V\replace;
 
 
 /*-----------------------------------
@@ -31,7 +26,7 @@ use function V\_, V\filter, V\concat, V\joinWith, V\match, V\split, V\pretty, V\
 
 
 class RegExpO{
-   use \OOPe\ObjectT;
+   use ObjectT;
 
    private $_value = "";
    private $_regex = "";
@@ -132,7 +127,7 @@ class RegExpO{
    }
    
    function replace($fn, $str){
-      return \V\replace($this->value(), $fn, $str);
+      return replace($this->value(), $fn, $str);
    }
    
    function __toString(){

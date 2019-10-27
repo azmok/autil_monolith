@@ -122,7 +122,22 @@ function highlight($str){
    - loading BootStrup.css
    - Styling Body element
 /*******************************/
-(new \OOPe\HTMLInit())
+(new HTMLInit())
    ->addStyle("body", [
          "padding" => "2rem",
    ]);
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
