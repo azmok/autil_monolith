@@ -53,8 +53,8 @@ htdocs/
 
 
 #  (2) How to use?
-// Autil files(modules) is namespaced as 'V'. So, when you use function after you include(require) files, 
-// you must follow two of which ways to use imported functions.
+// Autil files(modules) is namespaced as 'V'. So, when you would use function after you include(require) files, 
+// you must follow which way of two to use imported functions.
 
 
 
