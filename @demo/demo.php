@@ -60,7 +60,7 @@ htdocs/
 
 
 #-------------------------
-#  (2-1) using 'fully qualified name' to use function.
+#  (2-1) using 'fully qualified name'
 #------------------------
 #  ex  )
 #
@@ -74,7 +74,7 @@ V\_(1); // 1
 
 #-------------------------
 #   + recommended +
-#  (2-2 ) using 'use function {namespace}\{FnName}' clause to use imported function
+#  (2-2 ) using 'use function {namespace}\{FnName}' clause
 #-------------------------
 #  ex  )
 #
