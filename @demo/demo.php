@@ -98,7 +98,7 @@ echo type(1); // "[Number]"
 /**********************************************************
  *  To continue for demo,
  *
- *   - Add '/' to below '....******' line end 
+ *   - Add '/' to below '....******' line end. 
  *                                             \        
  *       Let's try more Demos!!😙😋           |         
  *                                             ↓  
