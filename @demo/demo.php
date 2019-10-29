@@ -60,7 +60,7 @@ htdocs/
 
 
 #-------------------------
-#  (2-1) using 'fully qualified name'
+#  (2-1) using 'qualified name'
 #------------------------
 #  ex  )
 #
@@ -69,6 +69,7 @@ htdocs/
 V\_(1); // 1
 
 
+// About the term 'qualified name', see [Name Resolution Rules](https://www.php.net/manual/en/language.namespaces.rules.php) in PHP Manual.
 
 
 
