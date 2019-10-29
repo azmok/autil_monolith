@@ -9,7 +9,7 @@ Vital, versatile, core utility function libray for PHP7 development.
 # Who this is for
 **For novice or intermediate.**
 
-I wrote this functions for my personal use. However, I think taht this is also useful for novice developers.
+I wrote this functions for my personal use. However, I think that this is also useful for novice developers.
   
 Short tutorial in '@demo/demo.php' makes it easier to use this library for novice, written for programming novice into consideration.
 
