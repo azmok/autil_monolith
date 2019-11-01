@@ -47,26 +47,16 @@ define('PATH_CSS_BOOTSTR', "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/c
  *
  */
 function render($val, $tagName="h4", $assocArr=[]){
-   if( match('~h\d~', $tagName) ){
-      if( empty($assocArr) ){
-         $assocArr = [
-            "class" => "",
-            "style" => [
-               "display" => "table",
-               "padding" => "0.5rem 1rem",
-               "margin-top" => "3.5rem",
-               "background" => "#f6e3d1",
-               "border-radius" => "9px",
-               "border" => "1px solid #ddd",
-               "box-shadow" => "2px 6px 9px 2px rgba(0,0,0,0.2)",
-               
-            ],
-         ];
-      }
-   }
-   
-   $str = toAttr($assocArr);
-   echo "<{$tagName} {$str}>".  htmlspecialchars($val)  ."</{$tagName}>";
+   inject( $val, "h4", [
+      "class" => "bg-warning",
+      "style" => [
+         "display" => "table",
+         "padding" => "0.25rem",
+         "margin" => "3.5rem auto 0 auto",
+         "border-radius" => "4px",
+         
+      ],
+   ]);
 }
 
 
@@ -133,18 +123,3 @@ function highlight($str){
    ->addStyle("body", [
          "padding" => "2rem",
    ]);
-   
-
-   
-
-   
-
-   
-
-   
-
-   
-
-   
-
-   

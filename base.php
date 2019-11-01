@@ -396,16 +396,27 @@ function toString($arg){
       return prettify($arg);
    
    ## Regex
-   } elseif ( type($arg) === "[Regex]" ){
+   } elseif ( isType("[Regex]", $arg) ){
       return "{$arg}";
    
    
    ## Object
-   } elseif ( type($arg) === "[Object]" ){
-      return $arg->__toString();
+   } elseif ( match("Object", type($arg)) ){
+
+      ### Closure class
+      if( $arg instanceof \Closure ){
+         return "[Closure Object]";
+         
+      ### exist '__toString()' method
+      } elseif( method_exists($arg, '__toString') ){
+         return $arg->__toString();
+      
+      } else {
+         return type($arg);
+      }
    
    ## Function
-   } elseif ( type($arg) === "[Function]" ){
+   } elseif ( isType("[Function]", $arg) ){
       $ref = new \ReflectionFunction($arg);
       $fnName = $ref->getName();
       
@@ -417,26 +428,26 @@ function toString($arg){
 }
 
 
-/**
- *
- */
-function prettify($arr, $format_assoc=false, $depth=0, $prevVal=""){
 
-   ## AssocArr, $format_assoc: *
-   ## Array   , $format_assoc: true
+
+
+function prettify($arr, $format_assoc=False, $depth=0){
+
    define('BASE', 2);
    
-   if(
-      isAssoc($arr) ||
-      ( isArray($arr)  &&  $format_assoc === true )
-      ){
-       $str = "";
+   if( isAssoc($arr) ||
+       isArray($arr)  &&  $format_assoc === true ){
       
-      _forEach(function($key, $val, $indx, $ar) use (&$str, $depth, $format_assoc){
-         $lastIndex = length($ar) - 1;
+      $str = "";
+      $indx = 0;
+      
+      foreach($arr as $key=>$val){
+         $lastIndex = length($arr) - 1;
          
          ######  add <br>, but not in last element  ######
-         $str .= "<br>";
+         if( $indx !== 0 ){
+            $str .= "<br>";
+         }
          #######  add tab  ######
          $str .= appendTab( "", $depth*BASE);
          
@@ -452,7 +463,7 @@ function prettify($arr, $format_assoc=false, $depth=0, $prevVal=""){
          # $curr :: ![Array], ![AssocArray]
          } else {
             # inject $curr
-            if( isType("[AssocArray]", $ar) ){
+            if( isType("[AssocArray]", $arr) ){
                if( isType("[String]", $val)  ){
                   $str .= "[{$key}]: \"{$val}\"";
                } else {
@@ -462,30 +473,28 @@ function prettify($arr, $format_assoc=false, $depth=0, $prevVal=""){
                $str .= "[{$key}]: ".  toString($val);
             }
          }
-      }, $arr, 4);
+         $indx++;
+      }
       
       return $str;
 
    ## Array, $format_assoc: false 
-   } elseif (
-      isArray($arr)  &&
-      $format_assoc === false
-      ){
+   } elseif( isArray($arr)  &&  $format_assoc === false ){
       
-         $str = "";
+      $str = "";
          
-         if( empty($arr) ){
-            $str .= "<br>". prependTab("()", $depth*BASE);
-         } else {
-            _forEach(function($curr, $indx, $arr) use (&$str, $depth, $format_assoc){
-               $lastIndex = length($arr) - 1;
+      if( empty($arr) ){
+         $str .= "". prependTab("()", $depth*BASE);
+      } else {
+         _forEach(function($curr, $indx, $arr) use (&$str, $depth, $format_assoc){
+            $lastIndex = length($arr) - 1;
             
-               //$str.= "<br>";
+            //$str.= "<br>";
             
-               #######  add `(`  ######
-               if ( $indx === 0  ){
-                  $str .= "<br>".  prependTab("(", $depth*BASE);
-               }
+            ######  add `(`  ######
+            if ( $indx === 0  ){
+               $str .= "".  prependTab("(", $depth*BASE);
+            }
             
             ######  add $curr  ######
             # $curr :: [Array]
@@ -501,23 +510,22 @@ function prettify($arr, $format_assoc=false, $depth=0, $prevVal=""){
                # inject $curr
                $str .= toString($curr);
             }
-            
+         
             ######  add `,` | `)`  ######
             if ( $indx === $lastIndex ){
                if( isArray($curr)  ||  isAssoc($curr) ){
                   $str .= "<br>".  prependTab(")", $depth*BASE);
-                  
+               
                } else {
                   $str .= ")";
                }
             # not lastIndex
             } else {
-               $str .= " , ";
+               $str .= ", ";
                if( isType("[AssocArray]", $curr) ){
                   $str .= "<br>";
                }
             }
-            
          }, $arr);
       }
       
@@ -558,23 +566,54 @@ function toAttr($assocArr){
 /** echo for debugging
  * @sig _ :: (* -> * -> ...) -> null
  */
+function inject($val, $tagName="h1", $assocArr=[]){
+   preg_match('~h\d~', $tagName, $matches);
+   
+   $match = $matches[0][0];
+   
+   if( !empty($match) ){
+      if( empty($assocArr) ){
+         $assocArr = [
+            "class" => "",
+            "style" => [
+               "padding" => "0 0.5rem",
+            ],
+         ];
+      }
+   }
+   
+   $str = toAttr($assocArr);
+   echo "<{$tagName} {$str}>".  $val  ."</{$tagName}>";
+}
+
+
 function _ (...$args){
+   $style = [
+      "style" => [
+         "background" => "#faf8f6",
+         "margin-top" => "0.5rem",
+         "padding" => "1rem",
+         "font" => "400 1rem/1.2 Inconsolata, Courier, monospace",
+         "letter-spacing" => "-0.3px",
+      ],
+   ];
    #### args.length <= 1
    if( count($args) <= 1 ){
-      echo( toString($args[0]) );
+      inject( toString($args[0]), "div", $style);
+      
    } else {
    #### args.length >= 2
+      $str = "";
       foreach($args as $arg){
          
          if( type($arg) === "[Array]" ){
-            echo( toString($arg) );
+            $str .= toString($arg);
          } else {
-            echo( toString($arg)  ." ");
+            $str .= toString($arg)  ." ";
          }
       }
+      inject( $str, "DIV", $style );
    }
-   ## append line break for next output
-   exho("");
 }
 
 
