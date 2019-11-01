@@ -141,7 +141,7 @@ function toLowerCase($str){
 
 /**
  *
- */
+ *
 function trim($str){
    $regex = '/^([\s\t　])*([\w\W]+?)[\s\t　]*$/';
    $replacer = function($matches){
@@ -591,10 +591,10 @@ function _ (...$args){
    $style = [
       "style" => [
          "background" => "#faf8f6",
-         "margin-top" => "0.5rem",
          "padding" => "1rem",
          "font" => "400 1rem/1.2 Inconsolata, Courier, monospace",
          "letter-spacing" => "-0.3px",
+         "border-bottom" => "1px solid #eaeaea",
       ],
    ];
    #### args.length <= 1
@@ -612,7 +612,7 @@ function _ (...$args){
             $str .= toString($arg)  ." ";
          }
       }
-      inject( $str, "DIV", $style );
+      inject( $str, "div", $style );
    }
 }
 

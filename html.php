@@ -46,15 +46,12 @@ define('PATH_CSS_BOOTSTR', "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/c
 /**
  *
  */
-function render($val, $tagName="h4", $assocArr=[]){
-   inject( $val, "h4", [
-      "class" => "bg-warning",
+function render($val, $tagName="div", $assocArr=[]){
+   inject( $val, "div", [
+      "class" => "alert alert-success text-center",
       "style" => [
-         "display" => "table",
-         "padding" => "0.25rem",
          "margin" => "3.5rem auto 0 auto",
-         "border-radius" => "4px",
-         
+         "font-size" => "1.3125rem",
       ],
    ]);
 }
@@ -66,7 +63,7 @@ function render($val, $tagName="h4", $assocArr=[]){
 function create($txt, $tagName="div", $assocArr=[]){
    if( empty($assocArr) ){
       $assocArr = [
-         "class" => "bg-info text-white",
+         "class" => "bg-info",
          "style" => [
             "padding" => "0 0.5rem",
          ],
