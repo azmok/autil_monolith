@@ -1136,41 +1136,36 @@ function pushTo($val, $index, $arr){
  *
  */
 function match($searchPat, $str, $offset=false){
-   
    ## $searchPat :: [Regex]
    if( isType("[Regex]", $searchPat) ){
-      $flags = RegExpO::getFlags($searchPat);
-      $regex = RegExpO::getRegex($searchPat);
+      $flags = \OOPe\RegExpO::getFlags($searchPat);
+      $pattern = \OOPe\RegExpO::getRegex($searchPat);
       
       ## global match
       if( $flags  &&  in_array("g", $flags) ){
-         //_( $flags );
          $notGFlags = filter(function($curr, $indx){
             return $curr !== "g";
          }, $flags);
-         //_( $notGFlags );
-         //_( $regex );
-         $regex .= join($notGFlags);
-         //_( $regex );
+         $pattern .= join($notGFlags);
+         
          if( $offset ){
-            preg_match_all($regex, $str, $matches);
+            preg_match_all($pattern, $str, $matches);
             
             return $matches;
          } else {
-            preg_match_all($regex, $str, $matches);
+            preg_match_all($pattern, $str, $matches);
             
             return $matches[0];
          }
          
-      
       ## single match
       } else {
          if( $offset ){
-            preg_match($regex, $str, $matches);
+            preg_match($searchPat, $str, $matches);
             
             return $matches;
          } else {
-            preg_match($regex, $str, $matches);
+            preg_match($searchPat, $str, $matches);
             
             return $matches[0];
          }
@@ -1178,7 +1173,18 @@ function match($searchPat, $str, $offset=false){
    
    ## $searchPat :: [String]
    } elseif ( isType("[String]", $searchPat) ){
-      return strpos($str, $searchPat);
+      
+      $res = strpos($str, $searchPat);
+      
+      # no match #
+      #   @return: <null>
+      if( $res === false ){
+         return null;
+      # match #
+      #   @return: <Num> position index
+      } else {
+         return $res;
+      }
    } else {
       throw new \Exception("Invalid type of arguments in 'match()'");
    }
