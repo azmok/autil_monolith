@@ -1,5 +1,5 @@
 # Autil
-Vital, versatile, core utility function libray for PHP7 development.
+Vital, versatile, core utility function library for PHP7 development.
 
 
 # How to use
