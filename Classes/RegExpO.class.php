@@ -19,9 +19,9 @@ namespace V;
    + props() : <Array>
    + replace() : <Str>
    
-   // '++' indicates static method.
-   ++ getRegex() : <String>
-   ++ getFlags() : <Array>
+   // 's' preceeding access modifier indicates 'static'.
+  s+ getRegex() : <String>
+  s+ getFlags() : <Array>
 -----------------------------------*/
 
 
